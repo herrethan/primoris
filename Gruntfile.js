@@ -29,6 +29,8 @@ var _              = require('lodash'),
         // Find all of the task which start with `grunt-` and load them, rather than explicitly declaring them all
         require('matchdep').filterDev(['grunt-*', '!grunt-cli']).forEach(grunt.loadNpmTasks);
 
+        // grunt.loadNpmTasks('grunt-contrib-less');
+
         var cfg = {
             // #### Common paths used by tasks
             paths: {
@@ -48,11 +50,13 @@ var _              = require('lodash'),
             watch: {
                 livereload: {
                     files: [
-                        'content/themes/casper/assets/css/*.css',
+                        'content/themes/casper/assets/less/*.less',
+                        // 'content/themes/casper/assets/css/*.css',
                         'content/themes/casper/assets/js/*.js',
                         'core/built/assets/*.js',
                         'core/client/dist/index.html'
                     ],
+                    tasks: ['less'],
                     options: {
                         livereload: true
                     }
@@ -73,6 +77,19 @@ var _              = require('lodash'),
                 }
             },
 
+            less: {
+                development: {
+                    options: {
+                        // Specifies directories to scan for @import directives when parsing. 
+                        // Default value is the directory of the source, which is probably what you want.
+                        paths: ['content/themes/casper/assets/less/'],
+                    },
+                    files: {
+                        // compilation.css  :  source.less
+                        'content/themes/casper/assets/css/app.css': 'content/themes/casper/assets/less/app.less'
+                    }
+                },
+            },
             // ### grunt-express-server
             // Start a Ghost expess server for use in development and testing
             express: {
@@ -828,7 +845,7 @@ var _              = require('lodash'),
         //
         // Note that the current implementation of watch only works with casper, not other themes.
         grunt.registerTask('dev', 'Dev Mode; watch files and restart server on changes',
-           ['bgShell:ember', 'express:dev', 'watch']);
+           ['bgShell:ember', 'express:dev', 'less', 'watch']);
 
         // ### Release
         // Run `grunt release` to create a Ghost release zip file.
