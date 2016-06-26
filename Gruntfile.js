@@ -29,8 +29,6 @@ var _              = require('lodash'),
         // Find all of the task which start with `grunt-` and load them, rather than explicitly declaring them all
         require('matchdep').filterDev(['grunt-*', '!grunt-cli']).forEach(grunt.loadNpmTasks);
 
-        // grunt.loadNpmTasks('grunt-contrib-less');
-
         var cfg = {
             // #### Common paths used by tasks
             paths: {
@@ -51,7 +49,6 @@ var _              = require('lodash'),
                 livereload: {
                     files: [
                         'content/themes/casper/assets/less/*.less',
-                        // 'content/themes/casper/assets/css/*.css',
                         'content/themes/casper/assets/js/*.js',
                         'core/built/assets/*.js',
                         'core/client/dist/index.html'
@@ -85,7 +82,7 @@ var _              = require('lodash'),
                         paths: ['content/themes/casper/assets/less/'],
                     },
                     files: {
-                        // compilation.css  :  source.less
+                        // compilation.css : source.less
                         'content/themes/casper/assets/css/app.css': 'content/themes/casper/assets/less/app.less'
                     }
                 },
