@@ -1,0 +1,27 @@
+<nav class="nav-main clearfix">
+  {{#if @blog.logo}}
+  <a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>
+  {{/if}}
+  <ul class="screen-md-and-up">
+    {{#foreach navigation}}
+      <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}" role="presentation">
+        <a href="{{url absolute="true"}}">{{label}}</a>
+      </li>
+    {{/foreach}}
+  </ul>
+  <a href="javascript:;" class="screen-sm-only hamburger icon-menu"></a>
+</nav>
+
+<!-- <div class="nav">
+  <h3 class="nav-title">Menu</h3>
+  <a href="javascript:;" class="nav-close">
+      <span class="offscreen">Close menu</span>
+  </a>
+
+  {{#if @labs.subscribers}}
+    <a class="subscribe-button" href="{{@blog.url}}/subscribe/">Subscribe</a>
+  {{else}}
+    <a class="subscribe-button icon-feed" href="{{@blog.url}}/rss/">Subscribe</a>
+  {{/if}}
+</div>
+ -->

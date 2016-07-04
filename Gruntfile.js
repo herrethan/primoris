@@ -48,8 +48,8 @@ var _              = require('lodash'),
             watch: {
                 livereload: {
                     files: [
-                        'content/themes/casper/assets/less/*.less',
-                        'content/themes/casper/assets/js/*.js',
+                        'content/themes/ouija/assets/less/*.less',
+                        'content/themes/ouija/assets/js/*.js',
                         'core/built/assets/*.js',
                         'core/client/dist/index.html'
                     ],
@@ -79,11 +79,11 @@ var _              = require('lodash'),
                     options: {
                         // Specifies directories to scan for @import directives when parsing. 
                         // Default value is the directory of the source, which is probably what you want.
-                        paths: ['content/themes/casper/assets/less/'],
+                        paths: ['content/themes/ouija/assets/less/'],
                     },
                     files: {
                         // compilation.css : source.less
-                        'content/themes/casper/assets/css/app.css': 'content/themes/casper/assets/less/app.less'
+                        'content/themes/ouija/assets/css/app.css': 'content/themes/ouija/assets/less/app.less'
                     }
                 },
             },
