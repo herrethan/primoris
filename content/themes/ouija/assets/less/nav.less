@@ -48,28 +48,45 @@
     color: white;
     text-shadow: 0 0 24px rgba(0,0,0,0.8);
     text-transform: uppercase;
-    font-weight: bold;
     line-height: @mobile-nav-li-height;
     height: @mobile-nav-li-height;
-    font-size: 1.2em;
     letter-spacing: -.03rem;
   }
 }
 
 .nav-main {
   position: relative;
+  background-color: white;
+  height: @nav-height-sm;
+  
+  @media(min-width: @screen-md-min){
+    position: absolute;
+    height: @nav-height-md;
+    top: @half-gutter;
+    left: @half-gutter;
+    right: @half-gutter;
+    border-radius: 2px;
+  }
+
   li {
     display: inline-block;
+    margin-left: @gutter;
   }
   a {
     color: @hit-grey;
+    
+    &:focus,
+    &:hover,
+    &:active {
+      color: @cape-cod;
+    }
   }
 }
 
-.blog-logo {
+.logo-banner {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: @quarter-gutter;
+  top: @quarter-gutter;
   font-size: 0;
   line-height: 0;
   img {
@@ -77,10 +94,20 @@
   }
 }
 
+.logo-text {
+  position: relative;
+  height: 100%;
+
+  img {
+    height: 90%;
+  }
+}
+
 .hamburger {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: @half-gutter;
+  top: @half-gutter;
+  line-height: 0;
   color: @hit-grey;
 }
 

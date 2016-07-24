@@ -15,6 +15,13 @@
   overflow: hidden;
 }
 
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
 
 .screen-sm-only {
   @media(min-width: @screen-md-min){
@@ -40,7 +47,7 @@
 .inner {
   position: relative;
   width: 80%;
-  max-width: 710px;
+  max-width: @inner-content-max-width;
   margin: 0 auto;
 }
 

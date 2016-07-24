@@ -2528,6 +2528,12 @@ select[multiple] {
   height: 1px;
   overflow: hidden;
 }
+.right {
+  float: right;
+}
+.left {
+  float: left;
+}
 @media (min-width: 47.9375rem) {
   .screen-sm-only {
     display: none;
@@ -2553,7 +2559,7 @@ select[multiple] {
 .inner {
   position: relative;
   width: 80%;
-  max-width: 710px;
+  max-width: 71rem;
   margin: 0 auto;
 }
 /* Centres vertically yo. (IE8+) */
@@ -2642,7 +2648,7 @@ pre {
   white-space: pre;
   overflow: auto;
   background: #F7FAFB;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 pre code,
 pre tt {
@@ -2662,7 +2668,7 @@ kbd {
   font-size: 0.9em;
   font-weight: 700;
   background: #F4F4F4;
-  border-radius: 4px;
+  border-radius: 2px;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 0 #fff inset;
 }
 table {
@@ -2716,54 +2722,6 @@ margin on the iframe, cause it breaks stuff. */
 .fluid-width-video-wrapper iframe {
   margin: 0;
 }
-textarea,
-select,
-input {
-  width: 260px;
-  padding: 6px 9px;
-  margin: 0 0 5px 0;
-  outline: 0;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.6rem;
-  font-weight: 100;
-  line-height: 1.4em;
-  background: #fff;
-  border: #e7eef2 1px solid;
-  border-radius: 4px;
-  box-shadow: none;
-  -webkit-appearance: none;
-}
-textarea {
-  width: 100%;
-  max-width: 340px;
-  min-width: 250px;
-  height: auto;
-  min-height: 80px;
-}
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="url"]:focus,
-input[type="password"]:focus,
-input[type="number"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="week"]:focus,
-input[type="time"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-textarea:focus {
-  border: #bbc7cc 1px solid;
-  background: #fff;
-  outline: none;
-  outline-width: 0;
-}
-select {
-  width: 270px;
-  height: 30px;
-  line-height: 30px;
-}
 /* Big cover image on the home page */
 /* Create a bouncing scroll-down arrow on homepage with cover image */
 /* Add subtle load-in animation for content on the home page */
@@ -2781,9 +2739,6 @@ select {
 }
 /* Every post, on every page, gets this style on its <article> tag */
 .post {
-  position: relative;
-  width: 80%;
-  max-width: 710px;
   margin: 4rem auto;
   padding-bottom: 4rem;
   border-bottom: #EBF2F6 1px solid;
@@ -2802,7 +2757,7 @@ select {
   left: 50%;
   margin-left: -5px;
   background: #FFF;
-  border-radius: 100%;
+  border-radius: 50%;
   box-shadow: #FFF 0 0 0 5px;
 }
 body:not(.post-template) .post-title {
@@ -2832,7 +2787,7 @@ body:not(.post-template) .post-title {
   height: 24px;
   float: left;
   margin-right: 9px;
-  border-radius: 100%;
+  border-radius: 50%;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -3066,7 +3021,7 @@ body:not(.post-template) .post-title {
   left: 50%;
   margin-left: -5px;
   background: #FFF;
-  border-radius: 100%;
+  border-radius: 50%;
   box-shadow: #FFF 0 0 0 5px;
 }
 .author-image {
@@ -3080,7 +3035,7 @@ body:not(.post-template) .post-title {
   margin-left: -40px;
   width: 80px;
   height: 80px;
-  border-radius: 100%;
+  border-radius: 50%;
   overflow: hidden;
   padding: 6px;
   background: #fff;
@@ -3094,7 +3049,7 @@ body:not(.post-template) .post-title {
   height: 100%;
   background-size: cover;
   background-position: center center;
-  border-radius: 100%;
+  border-radius: 50%;
 }
 .author-profile .author-image {
   position: relative;
@@ -3204,7 +3159,7 @@ body:not(.post-template) .post-title {
   font-family: "Open Sans", sans-serif;
   color: rgba(255, 255, 255, 0.8);
   border: rgba(255, 255, 255, 0.5) 1px solid;
-  border-radius: 4px;
+  border-radius: 2px;
   transition: all 0.5s ease;
 }
 .read-next-story.prev .post:before {
@@ -3274,9 +3229,6 @@ body:not(.post-template) .post-title {
    ========================================================================== */
 /* The main wrapper for our pagination links */
 .pagination {
-  position: relative;
-  width: 80%;
-  max-width: 710px;
   margin: 4rem auto;
   font-family: "Open Sans", sans-serif;
   font-size: 1.3rem;
@@ -3295,7 +3247,7 @@ body:not(.post-template) .post-title {
   padding: 0 15px;
   border: #bfc8cd 1px solid;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 2px;
   transition: border 0.3s ease;
 }
 .older-posts {
@@ -3329,7 +3281,7 @@ body:not(.post-template) .post-title {
   left: 50%;
   margin-left: -5px;
   background: #FFF;
-  border-radius: 100%;
+  border-radius: 50%;
   box-shadow: #FFF 0 0 0 5px;
 }
 .extra-pagination .pagination {
@@ -3352,7 +3304,7 @@ body:not(.post-template) .post-title {
   margin-top: 3rem;
   text-align: center;
   background: #f5f8fa;
-  border-radius: 5px;
+  border-radius: 2px;
 }
 .gh-subscribe-title {
   margin-bottom: 0;
@@ -3375,7 +3327,7 @@ body:not(.post-template) .post-title {
   box-sizing: border-box;
   width: 100%;
   margin: 0;
-  border-radius: 4px 0 0 4px;
+  border-radius: 2px 0 0 2px;
   transition: all ease 0.5s;
 }
 .gh-subscribe .subscribe-email:focus {
@@ -3384,7 +3336,7 @@ body:not(.post-template) .post-title {
 }
 .gh-subscribe button {
   margin-left: -1px;
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 2px 2px 0;
 }
 .gh-subscribe-rss {
   font-family: 'Open Sans', sans-serif;
@@ -3451,46 +3403,21 @@ body:not(.post-template) .post-title {
   }
 }
 /* Used to bounce .scroll-down on home page */
-@-webkit-keyframes bounce {
-  0%,
-  10%,
-  25%,
-  40%,
-  50% {
-    -webkit-transform: translateY(0) rotate(-90deg);
-    transform: translateY(0) rotate(-90deg);
-  }
-  20% {
-    -webkit-transform: translateY(-10px) rotate(-90deg);
-    transform: translateY(-10px) rotate(-90deg);
-  }
-  30% {
-    -webkit-transform: translateY(-5px) rotate(-90deg);
-    transform: translateY(-5px) rotate(-90deg);
-  }
-}
-@keyframes bounce {
-  0%,
-  10%,
-  25%,
-  40%,
-  50% {
-    -webkit-transform: translateY(0) rotate(-90deg);
-    transform: translateY(0) rotate(-90deg);
-  }
-  20% {
-    -webkit-transform: translateY(-10px) rotate(-90deg);
-    transform: translateY(-10px) rotate(-90deg);
-  }
-  30% {
-    -webkit-transform: translateY(-5px) rotate(-90deg);
-    transform: translateY(-5px) rotate(-90deg);
-  }
-}
 /* ==========================================================================
    End of file. Animations should be the last thing here. Do not add stuff
    below this point, or it will probably fuck everything up.
    ========================================================================== */
+.main-header {
+  height: 40rem;
+  position: relative;
+}
+.hero {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+}
 .site-wrapper {
   position: relative;
   z-index: 10;
@@ -3539,34 +3466,58 @@ body:not(.post-template) .post-title {
   color: white;
   text-shadow: 0 0 24px rgba(0, 0, 0, 0.8);
   text-transform: uppercase;
-  font-weight: bold;
   line-height: 4.285rem;
   height: 4.285rem;
-  font-size: 1.2em;
   letter-spacing: -0.03rem;
 }
 .nav-main {
   position: relative;
+  background-color: white;
+  height: 3.428rem;
+}
+@media (min-width: 47.9375rem) {
+  .nav-main {
+    position: absolute;
+    height: 5.142rem;
+    top: 0.857rem;
+    left: 0.857rem;
+    right: 0.857rem;
+    border-radius: 2px;
+  }
 }
 .nav-main li {
   display: inline-block;
+  margin-left: 1.714rem;
 }
 .nav-main a {
   color: #9EABB3;
 }
-.blog-logo {
+.nav-main a:focus,
+.nav-main a:hover,
+.nav-main a:active {
+  color: #3A4145;
+}
+.logo-banner {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 0.429rem;
+  top: 0.429rem;
   font-size: 0;
   line-height: 0;
 }
-.blog-logo img {
+.logo-banner img {
   width: 1.714rem;
+}
+.logo-text {
+  position: relative;
+  height: 100%;
+}
+.logo-text img {
+  height: 90%;
 }
 .hamburger {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 0.857rem;
+  top: 0.857rem;
+  line-height: 0;
   color: #9EABB3;
 }

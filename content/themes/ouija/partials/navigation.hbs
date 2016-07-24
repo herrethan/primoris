@@ -1,8 +1,13 @@
-<nav class="nav-main clearfix">
+<nav class="nav-main">
   {{#if @blog.logo}}
-  <a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>
+  <a class="logo-banner" href="{{@blog.url}}">
+    <img src="{{@blog.logo}}" alt="{{@blog.title}}"/>
+  </a>
   {{/if}}
-  <ul class="screen-md-and-up">
+  <a class="logo-text screen-md-and-up left" href="{{@blog.url}}">
+    <img src="{{asset 'img/logo-text.png'}}" alt="{{@blog.title}}"/>
+  </a>
+  <ul class="screen-md-and-up right">
     {{#foreach navigation}}
       <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}" role="presentation">
         <a href="{{url absolute="true"}}">{{label}}</a>

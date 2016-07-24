@@ -2,7 +2,8 @@
 {{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
 
 {{!-- The big featured header --}}
-<header class="main-header {{#if @blog.cover}}" style="background-image: url({{@blog.cover}}){{else}}no-cover{{/if}}">
+<header class="main-header">
+  <div class="hero hero-1" style="background-image: url({{asset 'img/anna.jpg'}})"></div>
 
   {{navigation}}
 <!--   <div class="vertical">
