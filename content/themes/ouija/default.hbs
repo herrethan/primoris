@@ -27,17 +27,10 @@
 </head>
 <body class="{{body_class}} nav-closed">
 
-  {{!-- The mobile-only navigation links --}}
+  {{!-- The mobile-only navigation --}}
 
   <div class="nav-mobile screen-sm-only">
-    <ul>
-      {{#foreach @blog.navigation}}
-      <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}" role="presentation">
-        <a href="{{url absolute='true'}}">{{label}}</a>
-      </li>
-      {{/foreach}}
-    </ul>
-    <span class="nav-cover"></span>
+    <ul>{{navigation}}</ul>
   </div>
 
   <div class="site-wrapper">

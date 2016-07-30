@@ -709,8 +709,8 @@ select[multiple] {
 }
 .row .row {
   max-width: none;
-  margin-left: -0.9375rem;
-  margin-right: -0.9375rem;
+  margin-left: -0.9rem;
+  margin-right: -0.9rem;
 }
 .row .row.collapse {
   margin-left: 0;
@@ -727,8 +727,8 @@ select[multiple] {
 .columns {
   width: 100%;
   float: left;
-  padding-left: 0.9375rem;
-  padding-right: 0.9375rem;
+  padding-left: 0.9rem;
+  padding-right: 0.9rem;
 }
 .column:last-child:not(:first-child),
 .columns:last-child:not(:first-child) {
@@ -1057,8 +1057,8 @@ select[multiple] {
 }
 .small-uncollapse > .column,
 .small-uncollapse > .columns {
-  padding-left: 0.9375rem;
-  padding-right: 0.9375rem;
+  padding-left: 0.9rem;
+  padding-right: 0.9rem;
 }
 .small-centered {
   float: none;
@@ -1382,8 +1382,8 @@ select[multiple] {
   }
   .medium-uncollapse > .column,
   .medium-uncollapse > .columns {
-    padding-left: 0.9375rem;
-    padding-right: 0.9375rem;
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
   }
   .medium-centered {
     float: none;
@@ -1708,8 +1708,8 @@ select[multiple] {
   }
   .large-uncollapse > .column,
   .large-uncollapse > .columns {
-    padding-left: 0.9375rem;
-    padding-right: 0.9375rem;
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
   }
   .large-centered {
     float: none;
@@ -2739,8 +2739,8 @@ margin on the iframe, cause it breaks stuff. */
 }
 /* Every post, on every page, gets this style on its <article> tag */
 .post {
-  margin: 4rem auto;
-  padding-bottom: 4rem;
+  margin: 3.6rem auto;
+  padding-bottom: 3.6rem;
   border-bottom: #EBF2F6 1px solid;
   word-wrap: break-word;
 }
@@ -2764,6 +2764,7 @@ body:not(.post-template) .post-title {
   font-size: 3.6rem;
 }
 .post-title a {
+  color: #3A4145;
   text-decoration: none;
 }
 .post-excerpt p {
@@ -3427,8 +3428,8 @@ body:not(.post-template) .post-title {
   transition: transform 0.5s ease;
 }
 .nav-opened .site-wrapper {
-  -webkit-transform: translate3D(0, 20.568rem, 0);
-  transform: translate3D(0, 20.568rem, 0);
+  -webkit-transform: translate3D(0, 21.6rem, 0);
+  transform: translate3D(0, 21.6rem, 0);
   -webkit-transition: -webkit-transform 0.3s ease;
   transition: transform 0.3s ease;
 }
@@ -3459,35 +3460,39 @@ body:not(.post-template) .post-title {
   width: 100%;
 }
 .nav-mobile ul {
-  padding: 1.714rem;
+  padding: 1.8rem;
   text-align: center;
 }
 .nav-mobile a {
   color: white;
   text-shadow: 0 0 24px rgba(0, 0, 0, 0.8);
   text-transform: uppercase;
-  line-height: 4.285rem;
-  height: 4.285rem;
+  line-height: 4.5rem;
+  height: 4.5rem;
   letter-spacing: -0.03rem;
 }
 .nav-main {
   position: relative;
   background-color: white;
-  height: 3.428rem;
+  height: 3.6rem;
 }
 @media (min-width: 47.9375rem) {
   .nav-main {
     position: absolute;
-    height: 5.142rem;
-    top: 0.857rem;
-    left: 0.857rem;
-    right: 0.857rem;
+    height: auto;
+    top: 0.9rem;
+    left: 0.9rem;
+    right: 0.9rem;
     border-radius: 2px;
+  }
+  .nav-main > ul {
+    padding: 0.9rem;
   }
 }
 .nav-main li {
   display: inline-block;
-  margin-left: 1.714rem;
+  margin-left: 0.9rem;
+  margin-right: 0.9rem;
 }
 .nav-main a {
   color: #9EABB3;
@@ -3499,25 +3504,36 @@ body:not(.post-template) .post-title {
 }
 .logo-banner {
   position: absolute;
-  left: 0.429rem;
-  top: 0.429rem;
+  left: 0.45rem;
+  top: 0.45rem;
   font-size: 0;
   line-height: 0;
 }
 .logo-banner img {
-  width: 1.714rem;
+  width: 1.8rem;
+}
+@media (min-width: 47.9375rem) {
+  .logo-banner {
+    left: 0.9rem;
+    top: 0;
+  }
+  .logo-banner img {
+    width: 48px;
+  }
 }
 .logo-text {
-  position: relative;
-  height: 100%;
+  position: absolute;
+  top: 0.9rem;
+  bottom: 0.9rem;
+  left: 6.3rem;
 }
 .logo-text img {
-  height: 90%;
+  height: 100%;
 }
 .hamburger {
   position: absolute;
-  right: 0.857rem;
-  top: 0.857rem;
+  right: 0.9rem;
+  top: 0.9rem;
   line-height: 0;
   color: #9EABB3;
 }

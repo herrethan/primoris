@@ -61,16 +61,21 @@
   
   @media(min-width: @screen-md-min){
     position: absolute;
-    height: @nav-height-md;
+    height: auto;
     top: @half-gutter;
     left: @half-gutter;
     right: @half-gutter;
     border-radius: 2px;
+
+    > ul{
+      padding: @half-gutter;
+    }
   }
 
   li {
     display: inline-block;
-    margin-left: @gutter;
+    margin-left: @half-gutter;
+    margin-right: @half-gutter;
   }
   a {
     color: @hit-grey;
@@ -92,14 +97,24 @@
   img {
     width: @gutter;
   }
+
+  @media(min-width: @screen-md-min){
+    left: @half-gutter;
+    top: 0;
+    img {
+      width: 48px;
+    }
+  }
 }
 
 .logo-text {
-  position: relative;
-  height: 100%;
+  position: absolute;
+  top: @half-gutter;
+  bottom: @half-gutter;
+  left: @gutter*3.5;
 
   img {
-    height: 90%;
+    height: 100%;
   }
 }
 
