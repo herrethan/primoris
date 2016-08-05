@@ -11,7 +11,7 @@ config = {
     // When running Ghost in the wild, use the production environment.
     // Configure your URL and mail settings here
     production: {
-        url: 'https://primoris.herokuapp.com/',
+        url: process.env.HEROKU_URL,
         mail: {
             transport: 'SMTP',
             options: {
@@ -23,16 +23,19 @@ config = {
             }
         },
         database: {
-            client: 'sqlite3',
+            client: 'postgres',
             connection: {
-                filename: path.join(__dirname, '/content/data/ghost.db')
+                host: process.env.POSTGRES_HOST,
+                user: process.env.POSTGRES_USER,
+                password: process.env.POSTGRES_PASSWORD,
+                database: process.env.POSTGRES_DATABASE,
+                port: process.env.POSTGRES_PORT
             },
             debug: false
         },
-
         server: {
             host: '0.0.0.0',
-            port: process.env.port
+            port: process.env.PORT
         }
     },
 
