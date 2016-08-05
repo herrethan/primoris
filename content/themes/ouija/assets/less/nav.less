@@ -120,12 +120,60 @@
 
 .hamburger {
   position: absolute;
+  outline: none;
   right: @half-gutter;
   top: @half-gutter;
   line-height: 0;
   color: @hit-grey;
 }
 
+.search-button {
+  position: absolute;
+  outline: none;
+  right: @gutter*2;
+  top: @half-gutter;
+  line-height: 0;
+  color: @hit-grey;
+
+  @media(min-width: @screen-md-min){
+    position: relative;
+    top: auto;
+    right: auto;  
+    float: right;
+    padding: @half-gutter;
+  }
+}
+
+.search-wrap {
+  display: none;
+
+  .search-opened & {
+    display: block;
+    position: absolute;
+    background: white;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    padding: 1px @half-gutter @half-gutter;
+    top: @nav-height-sm;
+    right: 0;
+    width: 100%;
+    max-width: 400px;
+
+    @media(min-width: @screen-md-min){
+      padding-top: 3px;
+      right: @half-gutter;
+      top: 57px;
+    }
+  }
+
+
+  .search {
+    border: none;
+    font-size: 1.5rem;
+    border-radius: 0;
+    margin-bottom: 0;
+  }
+}
 
 // .nav-opened {
 //   .site-wrapper {

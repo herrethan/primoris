@@ -7,10 +7,15 @@
 
   $document.ready(function () {
 
-    $('.hamburger, .nav-cover, .nav-close').on('click', function(e){
+    $('.hamburger').on('click', function(e){
       e.preventDefault();
       $('body').toggleClass('nav-opened nav-closed');
     });
+
+    $('.search-button').on('click', function(e){
+      e.preventDefault();
+      $('body').toggleClass('search-opened search-closed');
+    })
 
   });
 

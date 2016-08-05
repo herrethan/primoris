@@ -4,7 +4,10 @@
 {{!-- The big featured header --}}
 <header class="main-header">
   <div class="hero hero-1" style="background-image: url({{asset 'img/anna.jpg'}})"></div>
-
+  
+  <div class="search-wrap">
+    <input type="text" class="search" placeholder="Search Primoris">
+  </div>
   <nav class="nav-main">
     {{#if @blog.logo}}
     <a class="logo-banner" href="{{@blog.url}}">
@@ -14,10 +17,11 @@
     <a class="logo-text screen-md-and-up left" href="{{@blog.url}}">
       <img src="{{asset 'img/logo-text.png'}}" alt="{{@blog.title}}"/>
     </a>
+    <button href="javascript:;" class="search-button icon-link"></button>
     <ul class="screen-md-and-up right">
       {{navigation}}
     </ul>
-    <a href="javascript:;" class="screen-sm-only hamburger icon-menu"></a>
+    <button href="javascript:;" class="screen-sm-only hamburger icon-menu"></button>
   </nav>
 <!--   <div class="vertical">
       <div class="main-header-content inner">
@@ -45,11 +49,6 @@
           <iframe width="560" height="315" src="https://www.youtube.com/embed/c24G4Il9Ih8?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
         </section>
       </article>
-    </div>
-  </div>
-
-  <div class="row expanded small-collapse">
-    <div class="column">
       <article class="inner post">
         <header class="post-header">
           <h2 class="post-title">Tolle Ingenium: Lift Your Talent</h2>
@@ -61,5 +60,4 @@
       </article>
     </div>
   </div>
-
 </main>
