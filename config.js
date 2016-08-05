@@ -11,8 +11,17 @@ config = {
     // When running Ghost in the wild, use the production environment.
     // Configure your URL and mail settings here
     production: {
-        url: 'http://my-ghost-blog.com',
-        mail: {},
+        url: 'https://primoris.herokuapp.com/',
+        mail: {
+            transport: 'SMTP',
+            options: {
+                service: 'Mailgun',
+                auth: {
+                    user: 'postmaster@app3d6bf474137f4dcab1b2bd05a9ff89f7.mailgun.org',
+                    pass: 'f7f4492cb7725a05a89ea1d24429e559'
+                }
+            }
+        },
         database: {
             client: 'sqlite3',
             connection: {
@@ -22,8 +31,8 @@ config = {
         },
 
         server: {
-            host: '127.0.0.1',
-            port: '2368'
+            host: '0.0.0.0',
+            port: process.env.port
         }
     },
 
