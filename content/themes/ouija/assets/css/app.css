@@ -446,7 +446,7 @@ textarea {
   display: block;
   box-sizing: border-box;
   width: 100%;
-  padding: 0.9rem;
+  padding: 0.45rem 0.9rem;
   border: 1px solid #9EABB3;
   margin: 0 0 0.9rem;
   font-family: inherit;
@@ -2442,71 +2442,6 @@ select[multiple] {
   -webkit-animation-delay: 700ms !important;
   animation-delay: 700ms !important;
 }
-/* ==========================================================================
-   Icons - Sets up the icon font and respective classes
-   ========================================================================== */
-/* Import the font file with the icons in it */
-@font-face {
-  font-family: "casper-icons";
-  src: url("../fonts/casper-icons.eot?v=1");
-  src: url("../fonts/casper-icons.eot?v=1#iefix") format("embedded-opentype"), url("../fonts/casper-icons.woff?v=1") format("woff"), url("../fonts/casper-icons.ttf?v=1") format("truetype"), url("../fonts/casper-icons.svg?v=1#icons") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-/* Apply these base styles to all icons */
-[class^="icon-"]:before,
-[class*=" icon-"]:before {
-  font-family: "casper-icons", "Open Sans", sans-serif;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  text-decoration: none !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-/* Each icon is created by inserting the correct character into the
-   content of the :before pseudo element. Like a boss. */
-.icon-ghost:before {
-  content: "\f600";
-}
-.icon-feed:before {
-  content: "\f601";
-}
-.icon-twitter:before {
-  content: "\f602";
-  font-size: 1.1em;
-}
-.icon-google-plus:before {
-  content: "\f603";
-}
-.icon-facebook:before {
-  content: "\f604";
-}
-.icon-arrow-left:before {
-  content: "\f605";
-}
-.icon-stats:before {
-  content: "\f606";
-}
-.icon-location:before {
-  content: "\f607";
-  margin-left: -3px;
-  /* Tracking fix */
-}
-.icon-link:before {
-  content: "\f608";
-}
-.icon-menu:before {
-  content: "\f609";
-}
-/*
-    IMPORTANT: When making any changes to the icon font, be sure to increment
-    the version number by 1 in the @font-face rule. `?v=1` becomes `?v=2`
-    This forces browsers to download the new font file.
-*/
 .clearfix:before,
 .clearfix:after {
   content: " ";
@@ -3410,12 +3345,57 @@ body:not(.post-template) .post-title {
   height: 40rem;
   position: relative;
 }
+@keyframes hero-fade {
+  0% {
+    opacity: 0;
+  }
+  3% {
+    opacity: 1;
+  }
+  22% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .hero {
   position: absolute;
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center center;
+}
+@media (min-width: 47.9375rem) {
+  .hero {
+    opacity: 0;
+    animation: hero-fade 42s linear infinite 0s;
+  }
+  .hero.hero-1 {
+    opacity: 1;
+    animation: none;
+  }
+}
+.hero-2 {
+  animation-delay: 6s;
+}
+.hero-3 {
+  animation-delay: 12s;
+}
+.hero-4 {
+  animation-delay: 18s;
+}
+.hero-5 {
+  animation-delay: 24s;
+}
+.hero-6 {
+  animation-delay: 30s;
+}
+.hero-7 {
+  animation-delay: 36s;
 }
 .site-wrapper {
   position: relative;
@@ -3473,6 +3453,7 @@ body:not(.post-template) .post-title {
   position: relative;
   background-color: white;
   height: 3.6rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 @media (min-width: 47.9375rem) {
   .nav-main {
@@ -3533,7 +3514,6 @@ body:not(.post-template) .post-title {
   outline: none;
   right: 0.9rem;
   top: 0.9rem;
-  line-height: 0;
   color: #9EABB3;
 }
 .search-button {
@@ -3541,22 +3521,22 @@ body:not(.post-template) .post-title {
   outline: none;
   right: 3.6rem;
   top: 0.9rem;
-  line-height: 0;
   color: #9EABB3;
 }
 @media (min-width: 47.9375rem) {
   .search-button {
     position: relative;
-    top: auto;
+    top: 4px;
+    /* tracking fix */
     right: auto;
     float: right;
     padding: 0.9rem;
   }
+  .search-button:hover {
+    color: #3A4145;
+  }
 }
 .search-wrap {
-  display: none;
-}
-.search-opened .search-wrap {
   display: block;
   position: absolute;
   background: white;
@@ -3567,17 +3547,34 @@ body:not(.post-template) .post-title {
   right: 0;
   width: 100%;
   max-width: 400px;
+  transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+}
+@media (min-width: 47.9375rem) {
+  .search-wrap {
+    right: 0.9rem;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+  }
+}
+.search-opened .search-wrap {
+  transform: translateY(0);
+  transition: 0.1s ease-out transform;
+  -webkit-transition: 0.1s ease-out -webkit-transform;
+  -moz-transition: 0.1s ease-out -moz-transform;
 }
 @media (min-width: 47.9375rem) {
   .search-opened .search-wrap {
     padding-top: 3px;
-    right: 0.9rem;
     top: 57px;
   }
 }
 .search-wrap .search {
   border: none;
   font-size: 1.5rem;
+  font-family: 'Open Sans', sans-serif;
   border-radius: 0;
   margin-bottom: 0;
 }

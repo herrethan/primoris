@@ -3,7 +3,13 @@
 
 {{!-- The big featured header --}}
 <header class="main-header">
-  <div class="hero hero-1" style="background-image: url({{asset 'img/anna.jpg'}})"></div>
+  <div class="hero hero-1" style="background-image: url({{asset 'img/artclass.jpg'}})"></div>
+  <div class="hero hero-2 screen-md-and-up" style="background-image: url({{asset 'img/brains.jpg'}})"></div>
+  <div class="hero hero-3 screen-md-and-up" style="background-image: url({{asset 'img/cellos.jpg'}})"></div>
+  <div class="hero hero-4 screen-md-and-up" style="background-image: url({{asset 'img/chemicals.jpg'}})"></div>
+  <div class="hero hero-5 screen-md-and-up" style="background-image: url({{asset 'img/dancin.jpg'}})"></div>
+  <div class="hero hero-6 screen-md-and-up" style="background-image: url({{asset 'img/julian.jpg'}})"></div>
+  <div class="hero hero-7 screen-md-and-up" style="background-image: url({{asset 'img/pastels.jpg'}})"></div>
   
   <div class="search-wrap">
     <input type="text" class="search" placeholder="Search Primoris">
@@ -17,11 +23,11 @@
     <a class="logo-text screen-md-and-up left" href="{{@blog.url}}">
       <img src="{{asset 'img/logo-text.png'}}" alt="{{@blog.title}}"/>
     </a>
-    <button href="javascript:;" class="search-button icon-link"></button>
+    <button href="javascript:;" class="search-button material-icons">search</button>
     <ul class="screen-md-and-up right">
       {{navigation}}
     </ul>
-    <button href="javascript:;" class="screen-sm-only hamburger icon-menu"></button>
+    <button href="javascript:;" class="screen-sm-only hamburger material-icons">menu</button>
   </nav>
 <!--   <div class="vertical">
       <div class="main-header-content inner">

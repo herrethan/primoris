@@ -7,8 +7,8 @@
           transition: transform 0.5s ease;
   
   .nav-opened & {
-    -webkit-transform: translate3D(0, @gutter*2 + @mobile-nav-li-height*4, 0);
-            transform: translate3D(0, @gutter*2 + @mobile-nav-li-height*4, 0);
+    -webkit-transform: translate3D(0, @gutter*2 + @mobile-nav-li-height*@mobile-nav-li-count, 0);
+            transform: translate3D(0, @gutter*2 + @mobile-nav-li-height*@mobile-nav-li-count, 0);
     -webkit-transition: -webkit-transform 0.3s ease;
             transition: transform 0.3s ease;
   }
@@ -58,6 +58,7 @@
   position: relative;
   background-color: white;
   height: @nav-height-sm;
+  box-shadow: @box-shadow;
   
   @media(min-width: @screen-md-min){
     position: absolute;
@@ -123,7 +124,6 @@
   outline: none;
   right: @half-gutter;
   top: @half-gutter;
-  line-height: 0;
   color: @hit-grey;
 }
 
@@ -132,44 +132,59 @@
   outline: none;
   right: @gutter*2;
   top: @half-gutter;
-  line-height: 0;
   color: @hit-grey;
 
   @media(min-width: @screen-md-min){
     position: relative;
-    top: auto;
+    top: 4px; /* tracking fix */
     right: auto;  
     float: right;
     padding: @half-gutter;
+
+    &:hover {
+      color: @cape-cod;
+    }
   }
 }
 
 .search-wrap {
-  display: none;
+  display: block;
+  position: absolute;
+  background: white;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  padding: 1px @half-gutter @half-gutter;
+  top: @nav-height-sm;
+  right: 0;
+  width: 100%;
+  max-width: 400px;
+  transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+
+  @media(min-width: @screen-md-min){
+    right: @half-gutter;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+  }
 
   .search-opened & {
-    display: block;
-    position: absolute;
-    background: white;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    padding: 1px @half-gutter @half-gutter;
-    top: @nav-height-sm;
-    right: 0;
-    width: 100%;
-    max-width: 400px;
-
+    transform: translateY(0);
+    transition: 0.1s ease-out transform;
+    -webkit-transition: 0.1s ease-out -webkit-transform;
+    -moz-transition: 0.1s ease-out -moz-transform;
+    
     @media(min-width: @screen-md-min){
       padding-top: 3px;
-      right: @half-gutter;
       top: 57px;
     }
   }
 
-
   .search {
     border: none;
     font-size: 1.5rem;
+    font-family: 'Open Sans', sans-serif;
     border-radius: 0;
     margin-bottom: 0;
   }
