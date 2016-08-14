@@ -168,6 +168,7 @@ apiRoutes = function apiRoutes(middleware) {
           }
         });
     });
+    // ## End Ethan's hack
 
     // API Router middleware
     router.use(middleware.api.errorHandler);

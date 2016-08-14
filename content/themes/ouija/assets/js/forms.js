@@ -9,10 +9,8 @@
 
     $('#submit').on('click', function(e){
       e.preventDefault();
-      console.log('pressy!');
 
       $.post('/ghost/api/v0.1/apply', {
-        wank: 'wanky',
         name: $('input[name="name"]').val(),
         email: $('input[name="email"]').val(),
         phone: $('input[name="phone"]').val()

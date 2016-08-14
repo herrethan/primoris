@@ -69,7 +69,7 @@
     border-radius: 2px;
 
     > ul{
-      padding: @half-gutter;
+      padding: @half-gutter 0;
     }
   }
 
@@ -112,7 +112,7 @@
   position: absolute;
   top: @half-gutter;
   bottom: @half-gutter;
-  left: @gutter*3.5;
+  left: @gutter*4;
 
   img {
     height: 100%;
@@ -140,6 +140,7 @@
     right: auto;  
     float: right;
     padding: @half-gutter;
+    margin-right: @half-gutter;
 
     &:hover {
       color: @cape-cod;
@@ -153,7 +154,7 @@
   background: white;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  padding: 1px @half-gutter @half-gutter;
+  padding: @half-gutter;
   top: @nav-height-sm;
   right: 0;
   width: 100%;
@@ -176,70 +177,14 @@
     -moz-transition: 0.1s ease-out -moz-transform;
     
     @media(min-width: @screen-md-min){
-      padding-top: 3px;
       top: 57px;
     }
   }
 
   .search {
-    border: none;
     font-size: 1.5rem;
     font-family: 'Open Sans', sans-serif;
     border-radius: 0;
     margin-bottom: 0;
   }
 }
-
-// .nav-opened {
-//   .site-wrapper {
-//     overflow-x: hidden;
-//     -webkit-transform: translate3D(0, -240px, 0);
-//         -ms-transform: translate3D(0, -240px, 0);
-//             transform: translate3D(0, -240px, 0);
-//     -webkit-transition: -webkit-transform 0.3s ease;
-//             transition: transform 0.3s ease;
-//   }
-//   .nav-cover {
-//     position: fixed;
-//     top: 240px;
-//     left: 0;
-//     right: 0;
-//     bottom: 0;
-//     z-index: 200;
-//   }
-// }
-
-// .nav {
-//   position: fixed;
-//   top: 0;
-//   right: 0;
-//   bottom: 0;
-//   z-index: 5;
-//   width: 240px;
-//   opacity: 0;
-//   background: #111;
-//   margin-bottom: 0;
-//   text-align: left;
-//   overflow-y: auto;
-//   -webkit-transition: -webkit-transform 0.5s ease,
-//                       opacity 0.3s ease 0.7s;
-//           transition: transform 0.5s ease,
-//                       opacity 0.3s ease 0.7s;
-  
-//   .nav-closed & {
-//     // -webkit-transform: translate3D(97px, 0, 0);
-//     //     -ms-transform: translate3D(97px, 0, 0);
-//     //         transform: translate3D(97px, 0, 0);
-//   }
-
-//   .nav-opened & {
-//     opacity: 1;
-//     -webkit-transition: -webkit-transform 0.3s ease,
-//                         opacity 0s ease 0s;
-//             transition: transform 0.3s ease,
-//                         opacity 0s ease 0s;
-//     -webkit-transform: translate3D(0, 0, 0);
-//         -ms-transform: translate3D(0, 0, 0);
-//             transform: translate3D(0, 0, 0);
-//   }
-// }

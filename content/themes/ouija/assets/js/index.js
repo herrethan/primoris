@@ -17,6 +17,8 @@
       $('body').toggleClass('search-opened search-closed');
     })
 
+    var $postContent = $('.post-content');
+    $postContent.fitVids();
   });
 
 })(jQuery);

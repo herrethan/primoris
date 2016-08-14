@@ -434,23 +434,23 @@ textarea {
   width: 100%;
   // height: 2.4375rem;
   padding: @quarter-gutter @half-gutter;
-  border: 1px solid @hit-grey;
+  border: 1px solid @light-grey;
   margin: 0 0 @half-gutter;
   font-family: inherit;
   // font-size: 1em;
   color: #0a0a0a;
   background-color: #fefefe;
   border-radius: 2px;
-  box-shadow: inset 0 1px 5px rgba(10, 10, 10, 0.1);
+  // box-shadow: inset 0 1px 5px rgba(10, 10, 10, 0.1);
   transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
   -webkit-appearance: none;
   -moz-appearance: none; }
   [type='text']:focus, [type='password']:focus, [type='date']:focus, [type='datetime']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='week']:focus, [type='email']:focus, [type='number']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='url']:focus, [type='color']:focus,
   textarea:focus {
-    border: 1px solid #8a8a8a;
+    border: 1px solid @hit-grey;
     background-color: #fefefe;
     outline: none;
-    box-shadow: 0 0 5px #cacaca;
+    box-shadow: 0 0 5px @light-grey;
     transition: box-shadow 0.5s, border-color 0.25s ease-in-out; }
 
 textarea {
@@ -460,19 +460,19 @@ textarea {
 
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  color: #cacaca; }
+  color: @light-grey; }
 
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  color: #cacaca; }
+  color: @light-grey; }
 
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  color: #cacaca; }
+  color: @light-grey; }
 
 input::placeholder,
 textarea::placeholder {
-  color: #cacaca; }
+  color: @light-grey; }
 
 input:disabled, input[readonly],
 textarea:disabled,
@@ -549,7 +549,7 @@ label {
   padding: 0 1rem;
   background: #e6e6e6;
   color: #0a0a0a;
-  border: 1px solid #cacaca;
+  border: 1px solid @light-grey;
   white-space: nowrap;
   width: 1%;
   height: 100%; }
@@ -586,7 +586,7 @@ legend {
   max-width: 100%; }
 
 .fieldset {
-  border: 1px solid #cacaca;
+  border: 1px solid @light-grey;
   padding: 1.25rem;
   margin: 1.125rem 0; }
   .fieldset legend {
@@ -598,7 +598,7 @@ legend {
 select {
   height: 2.4375rem;
   padding: 0.5rem;
-  border: 1px solid #cacaca;
+  border: 1px solid @light-grey;
   margin: 0 0 1rem;
   font-size: 1rem;
   font-family: inherit;
