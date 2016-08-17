@@ -1,5 +1,3 @@
-// Ouija Forms JS
-
 (function ($, undefined) {
   "use strict";
 

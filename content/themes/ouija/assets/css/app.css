@@ -2452,6 +2452,9 @@ select[multiple] {
 .clearfix {
   zoom: 1;
 }
+.display-none {
+  display: none;
+}
 .offscreen {
   position: absolute;
   left: -100000px;
@@ -3575,4 +3578,27 @@ body:not(.post-template) .post-title {
   font-family: 'Open Sans', sans-serif;
   border-radius: 0;
   margin-bottom: 0;
+}
+.page-calendar .post-header {
+  postion: relative;
+}
+.page-calendar .post-title {
+  display: none;
+}
+.page-calendar .post-title.current {
+  display: block;
+}
+.page-calendar .post-content .calendar {
+  display: none;
+}
+.page-calendar .post-content .calendar.current {
+  display: table;
+}
+.calendar-arrows {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.calendar .muted {
+  opacity: 0.5;
 }
