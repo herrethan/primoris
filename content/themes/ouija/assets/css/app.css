@@ -446,14 +446,13 @@ textarea {
   display: block;
   box-sizing: border-box;
   width: 100%;
-  padding: 0.9rem;
-  border: 1px solid #9EABB3;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid #D5DBDE;
   margin: 0 0 0.9rem;
   font-family: inherit;
   color: #0a0a0a;
   background-color: #fefefe;
   border-radius: 2px;
-  box-shadow: inset 0 1px 5px rgba(10, 10, 10, 0.1);
   transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -473,10 +472,10 @@ textarea {
 [type='url']:focus,
 [type='color']:focus,
 textarea:focus {
-  border: 1px solid #8a8a8a;
+  border: 1px solid #9EABB3;
   background-color: #fefefe;
   outline: none;
-  box-shadow: 0 0 5px #cacaca;
+  box-shadow: 0 0 5px #D5DBDE;
   transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
 }
 textarea {
@@ -487,19 +486,19 @@ textarea[rows] {
 }
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  color: #cacaca;
+  color: #D5DBDE;
 }
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  color: #cacaca;
+  color: #D5DBDE;
 }
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  color: #cacaca;
+  color: #D5DBDE;
 }
 input::placeholder,
 textarea::placeholder {
-  color: #cacaca;
+  color: #D5DBDE;
 }
 input:disabled,
 input[readonly],
@@ -583,7 +582,7 @@ label.middle {
   padding: 0 1rem;
   background: #e6e6e6;
   color: #0a0a0a;
-  border: 1px solid #cacaca;
+  border: 1px solid #D5DBDE;
   white-space: nowrap;
   width: 1%;
   height: 100%;
@@ -623,7 +622,7 @@ legend {
   max-width: 100%;
 }
 .fieldset {
-  border: 1px solid #cacaca;
+  border: 1px solid #D5DBDE;
   padding: 1.25rem;
   margin: 1.125rem 0;
 }
@@ -636,7 +635,7 @@ legend {
 select {
   height: 2.4375rem;
   padding: 0.5rem;
-  border: 1px solid #cacaca;
+  border: 1px solid #D5DBDE;
   margin: 0 0 1rem;
   font-size: 1rem;
   font-family: inherit;
@@ -2442,71 +2441,6 @@ select[multiple] {
   -webkit-animation-delay: 700ms !important;
   animation-delay: 700ms !important;
 }
-/* ==========================================================================
-   Icons - Sets up the icon font and respective classes
-   ========================================================================== */
-/* Import the font file with the icons in it */
-@font-face {
-  font-family: "casper-icons";
-  src: url("../fonts/casper-icons.eot?v=1");
-  src: url("../fonts/casper-icons.eot?v=1#iefix") format("embedded-opentype"), url("../fonts/casper-icons.woff?v=1") format("woff"), url("../fonts/casper-icons.ttf?v=1") format("truetype"), url("../fonts/casper-icons.svg?v=1#icons") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-/* Apply these base styles to all icons */
-[class^="icon-"]:before,
-[class*=" icon-"]:before {
-  font-family: "casper-icons", "Open Sans", sans-serif;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  text-decoration: none !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-/* Each icon is created by inserting the correct character into the
-   content of the :before pseudo element. Like a boss. */
-.icon-ghost:before {
-  content: "\f600";
-}
-.icon-feed:before {
-  content: "\f601";
-}
-.icon-twitter:before {
-  content: "\f602";
-  font-size: 1.1em;
-}
-.icon-google-plus:before {
-  content: "\f603";
-}
-.icon-facebook:before {
-  content: "\f604";
-}
-.icon-arrow-left:before {
-  content: "\f605";
-}
-.icon-stats:before {
-  content: "\f606";
-}
-.icon-location:before {
-  content: "\f607";
-  margin-left: -3px;
-  /* Tracking fix */
-}
-.icon-link:before {
-  content: "\f608";
-}
-.icon-menu:before {
-  content: "\f609";
-}
-/*
-    IMPORTANT: When making any changes to the icon font, be sure to increment
-    the version number by 1 in the @font-face rule. `?v=1` becomes `?v=2`
-    This forces browsers to download the new font file.
-*/
 .clearfix:before,
 .clearfix:after {
   content: " ";
@@ -2517,6 +2451,9 @@ select[multiple] {
 }
 .clearfix {
   zoom: 1;
+}
+.display-none {
+  display: none;
 }
 .offscreen {
   position: absolute;
@@ -2806,7 +2743,7 @@ body:not(.post-template) .post-title {
   display: inline-block;
   margin-left: 8px;
   padding-left: 12px;
-  border-left: #d5dbde 1px solid;
+  border-left: #D5DBDE 1px solid;
   text-transform: uppercase;
   font-size: 1.3rem;
   white-space: nowrap;
@@ -3410,12 +3347,57 @@ body:not(.post-template) .post-title {
   height: 40rem;
   position: relative;
 }
+@keyframes hero-fade {
+  0% {
+    opacity: 0;
+  }
+  3% {
+    opacity: 1;
+  }
+  22% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .hero {
   position: absolute;
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center center;
+}
+@media (min-width: 47.9375rem) {
+  .hero {
+    opacity: 0;
+    animation: hero-fade 42s linear infinite 0s;
+  }
+  .hero.hero-1 {
+    opacity: 1;
+    animation: none;
+  }
+}
+.hero-2 {
+  animation-delay: 6s;
+}
+.hero-3 {
+  animation-delay: 12s;
+}
+.hero-4 {
+  animation-delay: 18s;
+}
+.hero-5 {
+  animation-delay: 24s;
+}
+.hero-6 {
+  animation-delay: 30s;
+}
+.hero-7 {
+  animation-delay: 36s;
 }
 .site-wrapper {
   position: relative;
@@ -3473,6 +3455,7 @@ body:not(.post-template) .post-title {
   position: relative;
   background-color: white;
   height: 3.6rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 @media (min-width: 47.9375rem) {
   .nav-main {
@@ -3484,7 +3467,7 @@ body:not(.post-template) .post-title {
     border-radius: 2px;
   }
   .nav-main > ul {
-    padding: 0.9rem;
+    padding: 0.9rem 0;
   }
 }
 .nav-main li {
@@ -3523,7 +3506,7 @@ body:not(.post-template) .post-title {
   position: absolute;
   top: 0.9rem;
   bottom: 0.9rem;
-  left: 6.3rem;
+  left: 7.2rem;
 }
 .logo-text img {
   height: 100%;
@@ -3533,7 +3516,6 @@ body:not(.post-template) .post-title {
   outline: none;
   right: 0.9rem;
   top: 0.9rem;
-  line-height: 0;
   color: #9EABB3;
 }
 .search-button {
@@ -3541,43 +3523,82 @@ body:not(.post-template) .post-title {
   outline: none;
   right: 3.6rem;
   top: 0.9rem;
-  line-height: 0;
   color: #9EABB3;
 }
 @media (min-width: 47.9375rem) {
   .search-button {
     position: relative;
-    top: auto;
+    top: 4px;
+    /* tracking fix */
     right: auto;
     float: right;
     padding: 0.9rem;
+    margin-right: 0.9rem;
+  }
+  .search-button:hover {
+    color: #3A4145;
   }
 }
 .search-wrap {
-  display: none;
-}
-.search-opened .search-wrap {
   display: block;
   position: absolute;
   background: white;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  padding: 1px 0.9rem 0.9rem;
+  padding: 0.9rem;
   top: 3.6rem;
   right: 0;
   width: 100%;
   max-width: 400px;
+  transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+}
+@media (min-width: 47.9375rem) {
+  .search-wrap {
+    right: 0.9rem;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+  }
+}
+.search-opened .search-wrap {
+  transform: translateY(0);
+  transition: 0.1s ease-out transform;
+  -webkit-transition: 0.1s ease-out -webkit-transform;
+  -moz-transition: 0.1s ease-out -moz-transform;
 }
 @media (min-width: 47.9375rem) {
   .search-opened .search-wrap {
-    padding-top: 3px;
-    right: 0.9rem;
     top: 57px;
   }
 }
 .search-wrap .search {
-  border: none;
   font-size: 1.5rem;
+  font-family: 'Open Sans', sans-serif;
   border-radius: 0;
   margin-bottom: 0;
+}
+.page-calendar .post-header {
+  postion: relative;
+}
+.page-calendar .post-title {
+  display: none;
+}
+.page-calendar .post-title.current {
+  display: block;
+}
+.page-calendar .post-content .calendar {
+  display: none;
+}
+.page-calendar .post-content .calendar.current {
+  display: table;
+}
+.calendar-arrows {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.calendar .muted {
+  opacity: 0.5;
 }

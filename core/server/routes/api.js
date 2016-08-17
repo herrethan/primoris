@@ -130,6 +130,46 @@ apiRoutes = function apiRoutes(middleware) {
     // ## Uploads
     router.post('/uploads', authenticatePrivate, middleware.upload.single('uploadimage'), api.http(api.uploads.add));
 
+    // ## Ethan's big hack for submitting application forms
+    router.post('/apply', function (req, res) {
+        console.log(req.body);
+
+        var nodemailer = require('nodemailer');
+        var validate = require('validate.js');
+        var mg = require('nodemailer-mailgun-transport');
+
+        // API key from www.mailgun.com/cp (free up to 10K monthly emails)
+        var auth = {
+          auth: {
+            api_key: 'key-9c766144476a73ceab130da35bb8f080',
+            domain: 'app3d6bf474137f4dcab1b2bd05a9ff89f7.mailgun.org'
+          }
+        }
+
+        var nodemailerMailgun = nodemailer.createTransport(mg(auth));
+
+        nodemailerMailgun.sendMail({
+          from: 'myemail@example.com',
+          to: 'herrethan@gmail.com', // An array if you have multiple recipients.
+          // cc:'second@domain.com',
+          // bcc:'secretagent@company.gov',
+          subject: 'words!',
+          // 'h:Reply-To': 'reply2this@company.com',
+          html: '<b>Wow, here:</b>' + '<p>' + req.body.name + req.body.email + req.body.phone + '</p>'
+          // text: 'Mailgun rocks, pow pow!'
+        }, function (err, info) {
+          if (err) {
+            console.log('bad eggs: ' + err);
+            res.sendStatus(500);
+          }
+          else {
+            console.log('good eggs: ' + info);
+            res.sendStatus(200);
+          }
+        });
+    });
+    // ## End Ethan's hack
+
     // API Router middleware
     router.use(middleware.api.errorHandler);
 

@@ -23,6 +23,7 @@ ghost().then(function (ghostServer) {
 
     // Let Ghost handle starting our server instance.
     ghostServer.start(parentApp);
+
 }).catch(function (err) {
     errors.logErrorAndExit(err, err.context, err.help);
 });

@@ -3,26 +3,35 @@
 
 {{!-- If we have a tag cover, display that - else blog cover - else nothing --}}
 <header class="main-header tag-head {{#if tag.image}}" style="background-image: url({{tag.image}}){{else}}{{#if @blog.cover}}" style="background-image: url({{@blog.cover}}){{else}}no-cover{{/if}}{{/if}}">
-    <nav class="main-nav overlay clearfix">
-        {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>{{/if}}
-        {{#if @blog.navigation}}
-            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+  <nav class="nav-main">
+    {{#if @blog.logo}}
+    <a class="logo-banner" href="{{@blog.url}}">
+      <img src="{{@blog.logo}}" alt="{{@blog.title}}"/>
+    </a>
+    {{/if}}
+    <a class="logo-text screen-md-and-up left" href="{{@blog.url}}">
+      <img src="{{asset 'img/logo-text.png'}}" alt="{{@blog.title}}"/>
+    </a>
+    <button href="javascript:;" class="search-button material-icons">search</button>
+    <ul class="screen-md-and-up right">
+      {{navigation}}
+    </ul>
+    <button href="javascript:;" class="screen-sm-only hamburger material-icons">menu</button>
+  </nav>
+  <div class="vertical">
+    {{#tag}}
+    <div class="main-header-content inner">
+      <h1 class="page-title">{{name}}</h1>
+      <h2 class="page-description">
+        {{#if description}}
+            {{description}}
+        {{else}}
+            A {{../pagination.total}}-post collection
         {{/if}}
-    </nav>
-    <div class="vertical">
-        {{#tag}}
-        <div class="main-header-content inner">
-            <h1 class="page-title">{{name}}</h1>
-            <h2 class="page-description">
-                {{#if description}}
-                    {{description}}
-                {{else}}
-                    A {{../pagination.total}}-post collection
-                {{/if}}
-            </h2>
-        </div>
-        {{/tag}}
+      </h2>
     </div>
+    {{/tag}}
+  </div>
 </header>
 
 {{!-- The main content area on the homepage --}}
