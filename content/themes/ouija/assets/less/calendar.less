@@ -1,0 +1,35 @@
+.page-calendar {
+  
+  .post-header {
+    postion: relative;
+  }
+
+  .post-title {
+    display: none;
+
+    &.current {
+      display: block;
+    }
+  }
+
+  .post-content .calendar {
+    display: none;
+
+    &.current {
+      display: table;
+    }
+  }
+}
+
+.calendar-arrows {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.calendar {
+
+  .muted {
+    opacity: 0.5;
+  }
+}
