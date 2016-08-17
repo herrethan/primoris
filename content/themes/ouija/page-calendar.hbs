@@ -1,0 +1,46 @@
+{{!< default}}
+
+{{!-- This is a page template. A page outputs content just like any other post, and has all the same
+    attributes by default, but you can also customise it to behave differently if you prefer. --}}
+
+{{!-- Everything inside the #post tags pulls data from the page --}}
+{{#post}}
+
+<header class="main-header post-head {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}">
+  <div class="search-wrap">
+    <input type="text" class="search" placeholder="Search Primoris">
+  </div>
+  <nav class="nav-main">
+    {{#if @blog.logo}}
+    <a class="logo-banner" href="{{@blog.url}}">
+      <img src="{{@blog.logo}}" alt="{{@blog.title}}"/>
+    </a>
+    {{/if}}
+    <a class="logo-text screen-md-and-up left" href="{{@blog.url}}">
+      <img src="{{asset 'img/logo-text.png'}}" alt="{{@blog.title}}"/>
+    </a>
+    <button href="javascript:;" class="search-button material-icons">search</button>
+    <ul class="screen-md-and-up right">
+      {{navigation}}
+    </ul>
+    <button href="javascript:;" class="screen-sm-only hamburger material-icons">menu</button>
+  </nav>
+</header>
+
+<main class="content" role="main">
+  <article class="inner {{post_class}}">
+
+    <header class="post-header">
+      <div class="calendar-arrows">
+        <button id="prev"><</button>
+        <button id="next">></button>
+      </div>
+    </header>
+
+    <section class="post-content">
+      <div id="post-content" class="display-none">{{content}}</div>
+    </section>
+
+  </article>
+</main>
+{{/post}}
