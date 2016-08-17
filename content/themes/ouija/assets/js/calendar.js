@@ -4,28 +4,64 @@
   // start and end months for calendar year
   var startDate = moment('09-2016', 'MM-YYYY');
   var endDate = moment('07-2017', 'MM-YYYY');
+  
   var now = moment();
-  var events = [];
+  var events = {};
 
   var $document = $(document);
+
+  var entryDate = function(dateString) {
+    return moment(dateString, ['M-D-YYYY', 'MMM-D-YYYY']).format('MM-DD-YYYY');
+  };
+
+  var entryTime = function(dateString) {
+    return moment(dateString, 'M-D-YYYY h:mma').format('hh:mma');
+  };
 
   $document.ready(function () {
 
     // get calendar events from post
     var postContent = $('#post-content').text().replace(/[\n\r]/g, '');
+
     postContent.split('[EVENT]').forEach(function(eventString){
       
-      if(eventString.indexOf('[name]') < 0) return;
+      if(eventString.indexOf('[name]') < 0 ||
+         eventString.indexOf('[date]') < 0) return;
       
-      var event = {};
+      var entry = {};
 
       eventString.split('[').forEach(function(prop){
         var key = _.toLower(prop.substring(0, prop.indexOf(']')));
         var value = _.trimStart(_.trimEnd(prop.substring(prop.indexOf(']')+1)));
-        if(key==='repeat') value = value.split(',');
-        if(key.length && value.length) event[key] = value;
+        if(key === 'repeat') value = value.split(',');
+        if(key.length && value.length) entry[key] = value;
       });
-      events.push(event);
+      
+      events[entryDate(entry.date)] = entry;
+      delete(entry.date);
+
+      if(_.isEmpty(entry.repeat)){
+        // events[entryDate(entry.date)] = entry;
+        // delete(entry.date);
+      } else {
+console.log('entry')
+        
+        var parentTime = entry.time
+        entry.repeat.forEach(function(date){
+
+          events[entryDate(date)] = entry;
+
+          var time = entryTime(date);
+          if(time === '12:00am') events[entryDate(date)].time = parentTime;
+          else events[entryDate(date)].time = time;
+          
+          console.log(time, entry.time);
+        })
+      }
+
+      // if(entry.repeat) entry.repeat = entry.repeat.split(',');
+
+      // events.push(entry);
     });
 console.log(events);
 
