@@ -3353,13 +3353,13 @@ body:not(.post-template) .post-title {
   0% {
     opacity: 0;
   }
-  3% {
+  6.55555556% {
     opacity: 1;
   }
-  22% {
+  34.33333333% {
     opacity: 1;
   }
-  25% {
+  40.88888889% {
     opacity: 0;
   }
   100% {
@@ -3376,7 +3376,7 @@ body:not(.post-template) .post-title {
 @media (min-width: 47.9375rem) {
   .hero {
     opacity: 0;
-    animation: hero-fade 42s linear infinite 0s;
+    animation: hero-fade 18s linear infinite 0s;
   }
   .hero.hero-1 {
     opacity: 1;
@@ -3388,18 +3388,6 @@ body:not(.post-template) .post-title {
 }
 .hero-3 {
   animation-delay: 12s;
-}
-.hero-4 {
-  animation-delay: 18s;
-}
-.hero-5 {
-  animation-delay: 24s;
-}
-.hero-6 {
-  animation-delay: 30s;
-}
-.hero-7 {
-  animation-delay: 36s;
 }
 .site-wrapper {
   position: relative;
