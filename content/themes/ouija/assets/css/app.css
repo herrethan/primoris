@@ -2920,6 +2920,8 @@ body:not(.post-template) .post-title {
 .post-head.main-header {
   height: 65vh;
   min-height: 180px;
+  background-size: cover;
+  background-position: center center;
 }
 .no-cover.post-head.main-header {
   height: 85px;
@@ -3344,7 +3346,7 @@ body:not(.post-template) .post-title {
    below this point, or it will probably fuck everything up.
    ========================================================================== */
 .main-header {
-  height: 40rem;
+  height: 65vh;
   position: relative;
 }
 @keyframes hero-fade {
@@ -3578,6 +3580,9 @@ body:not(.post-template) .post-title {
   font-family: 'Open Sans', sans-serif;
   border-radius: 0;
   margin-bottom: 0;
+}
+.page-calendar .main-header {
+  height: auto;
 }
 .page-calendar .post-header {
   postion: relative;
