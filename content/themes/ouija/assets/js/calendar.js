@@ -15,12 +15,18 @@
   };
 
   var entryTime = function(dateString) {
-    return moment(dateString, 'M-D-YYYY h:mma').format('hh:mma');
+    return moment(dateString, 'M-D-YYYY h:mma').format('h:mma');
+  };
+
+  var addNewEntry = function(id, entry) {
+    if(events[id]) events[id].push(entry);
+    else events[id] = [entry];
+    delete(entry.date);
   };
 
   $document.ready(function () {
 
-    // get calendar events from post
+    // get calendar event entries from post
     var postContent = $('#post-content').text().replace(/[\n\r]/g, '');
 
     postContent.split('[EVENT]').forEach(function(eventString){
@@ -37,65 +43,78 @@
         if(key.length && value.length) entry[key] = value;
       });
       
-      events[entryDate(entry.date)] = entry;
-      delete(entry.date);
-
-      if(_.isEmpty(entry.repeat)){
-        // events[entryDate(entry.date)] = entry;
-        // delete(entry.date);
-      } else {
-console.log('entry')
+      // create a dictionary of entries
+      addNewEntry(entryDate(entry.date), entry);
+      
+      if(!_.isEmpty(entry.repeat)){
         
         var parentTime = entry.time
         entry.repeat.forEach(function(date){
 
-          events[entryDate(date)] = entry;
-
+          var newEntry = jQuery.extend({}, entry);
+          var dateFormatted = entryDate(date);
           var time = entryTime(date);
-          if(time === '12:00am') events[entryDate(date)].time = parentTime;
-          else events[entryDate(date)].time = time;
-          
-          console.log(time, entry.time);
-        })
+          if(time === '12:00am') newEntry.time = parentTime;
+          else newEntry.time = time;
+
+          addNewEntry(dateFormatted, newEntry);
+          delete(newEntry.repeat);
+        });
+        delete(entry.repeat);
       }
-
-      // if(entry.repeat) entry.repeat = entry.repeat.split(',');
-
-      // events.push(entry);
     });
-console.log(events);
 
     // build whole calendar
     var $calendar = $('#calendar');
     var $buttonPrev = $('.calendar-arrows #prev');
     var $buttonNext = $('.calendar-arrows #next');
+    var $postHeader = $('.post-header');
+    var $postContent = $('.post-content');
     var weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    var i = moment(startDate);
+    var dateIndex = moment(startDate);
     var $monthTitles = {};
     var $monthCalendars = {};
 
-    while(i < endDate) {
+    while(dateIndex < endDate) {
 
-      var monthName = moment.months(i.get('month'));
-      var month = i.month();
+      var monthName = moment.months(dateIndex.get('month'));
+      var month = dateIndex.month();
       var days = weekdays.map(function(day){ return '<td>'+day+'</td>'});
-      var daysInMonth = moment(i).daysInMonth();
+      var daysInMonth = moment(dateIndex).daysInMonth();
       var weeks = [];
-
-      var date = moment(i);
+      var date = moment(dateIndex);
       var inMonth = false;
 
+      // start on sunday of first week of month
       date.subtract(date.day(), 'days');
-      
+
       do {
-        // console.log(date.date(), date.month(), month);
+        // build week rows
         var week = '<tr>';
         weekdays.forEach(function(){
+          var id = date.format('MM-DD-YYYY');
           inMonth = date.month() === month;
           week += '<td>';
           week += '<div class="date';
           if(!inMonth) week += ' muted';
           week += '">' + date.date() + '</div>';
+
+          // add event entries if there are any for this day
+          if(events[id] && inMonth){
+            events[id].forEach(function(entry, i){
+              week += '<div class="event event-'+ entry.type +' '+ (i+1) +'-up">'+
+                        '<a href="javascript:;">'+
+                          '<span class="event-name">'+ entry.name +'</span>'+
+                          '<span class="event-time">'+ entry.time +'</span>'+              
+                          '<section class="even-info">'+
+                            '<h2>'+ entry.name +'</h2>'+
+                            '<h3>'+ entry.time +'</h3>'+
+                            '<p>'+ entry.description +'</p>'+
+                          '</section>'+
+                        '</a>'+
+                      '</div>';
+            });
+          }
           week += '</td>';
           date.add(1, 'days')
         });
@@ -104,20 +123,19 @@ console.log(events);
         
       } while(inMonth);
 
-      // console.log('hey ok');
-      
+      var $title = $('<h1 class="post-title">'+monthName+'</h1>');
 
       var $calendar = $(
-      '<table class="calendar">\
-        <thead>' + days.join('') + '</thead>\
-        <tbody>' + weeks.join('') + '</tbody>\
-      </table>');
-      var $title = $('<h1 class="post-title">'+monthName+'</h1>');
-      $monthTitles[i.format('MM-YYYY')] = $title;
-      $monthCalendars[i.format('MM-YYYY')] = $calendar;
-      $('.post-header').append($title);
-      $('.post-content').append($calendar);
-      i = i.add(1, 'months');
+        '<table class="calendar">\
+          <thead>' + days.join('') + '</thead>\
+          <tbody>' + weeks.join('') + '</tbody>\
+        </table>');
+
+      $monthTitles[dateIndex.format('MM-YYYY')] = $title;
+      $monthCalendars[dateIndex.format('MM-YYYY')] = $calendar;
+      $postHeader.append($title);
+      $postContent.append($calendar);
+      dateIndex.add(1, 'months');
     }
 
     var toMonth = function(date){
@@ -141,7 +159,7 @@ console.log(events);
       } else if(dateString === endMonthString) {
         $buttonNext.prop('disabled', true)
       }
-    }
+    };
 
     $buttonPrev.bind('click', function(){
       toMonth(currentMonth.subtract(1, 'months'));
@@ -158,8 +176,6 @@ console.log(events);
     else currentMonth = now;
 
     toMonth(currentMonth);
-
-    // console.log(startDate); 
 
   });
 })(jQuery);
