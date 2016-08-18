@@ -135,7 +135,7 @@ apiRoutes = function apiRoutes(middleware) {
         console.log(req.body);
 
         var nodemailer = require('nodemailer');
-        // var validate = require('validate.js');
+        var validate = require('validate.js');
         var mg = require('nodemailer-mailgun-transport');
 
         // API key from www.mailgun.com/cp (free up to 10K monthly emails)
