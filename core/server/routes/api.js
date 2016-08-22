@@ -132,6 +132,7 @@ apiRoutes = function apiRoutes(middleware) {
 
     // ## Ethan's big hack for submitting application forms
     router.post('/apply', function (req, res) {
+        
         console.log(req.body);
 
         var nodemailer = require('nodemailer');
