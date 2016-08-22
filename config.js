@@ -37,6 +37,7 @@ config = {
             host: '0.0.0.0',
             port: process.env.PORT
         },
+        fileStorage: true,
         storage: {
             active: 'ghost-s3',
             'ghost-s3': {

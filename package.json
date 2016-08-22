@@ -70,7 +70,7 @@
     "unidecode": "0.1.8",
     "user-home": "^1.1.1",
     "validate.js": "^0.10.0",
-    "validator": "5.2.0",
+    "validator": "5.5.0",
     "xml": "1.0.1"
   },
   "optionalDependencies": {
