@@ -3,8 +3,7 @@
   position: relative;
 }
 
-//this calculates a transition fade of 1s
-@duration-in: 100%/(@slideshow-slide-duration*@slideshow-slide-count) + 1;
+@duration-in: 100%/(@slideshow-slide-duration*@slideshow-slide-count)*@slideshow-transition-duration + 1;
 @duration-out-start: 100%/@slideshow-slide-count + 1;
 @duration-out-end: @duration-out-start + @duration-in;
 
