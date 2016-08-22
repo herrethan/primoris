@@ -36,6 +36,16 @@ config = {
         server: {
             host: '0.0.0.0',
             port: process.env.PORT
+        },
+        storage: {
+            active: 'ghost-s3',
+            'ghost-s3': {
+                accessKeyId: 'AKIAJDVBT5QGBHQXZGRQ',
+                secretAccessKey: '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',
+                bucket: 'primoris',
+                region: 'us-east-1',
+                assetHost: 'https://s3-us-east-1.amazonaws.com/primoris'
+            }
         }
     },
 

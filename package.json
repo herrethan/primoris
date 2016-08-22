@@ -43,6 +43,7 @@
     "extract-zip": "1.5.0",
     "fs-extra": "0.30.0",
     "ghost-gql": "0.0.4",
+    "ghost-s3-storage": "^0.2.2",
     "glob": "5.0.15",
     "html-to-text": "2.1.0",
     "intl": "1.1.0",

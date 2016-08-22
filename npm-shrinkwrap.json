@@ -993,6 +993,52 @@
       "from": "https://registry.npmjs.org/ghost-gql/-/ghost-gql-0.0.4.tgz",
       "resolved": "https://registry.npmjs.org/ghost-gql/-/ghost-gql-0.0.4.tgz"
     },
+    "ghost-s3-storage": {
+      "version": "0.2.2",
+      "from": "ghost-s3-storage@",
+      "resolved": "https://registry.npmjs.org/ghost-s3-storage/-/ghost-s3-storage-0.2.2.tgz",
+      "dependencies": {
+        "aws-sdk": {
+          "version": "2.5.2",
+          "from": "aws-sdk@^2.1.6",
+          "resolved": "https://registry.npmjs.org/aws-sdk/-/aws-sdk-2.5.2.tgz",
+          "dependencies": {
+            "sax": {
+              "version": "1.1.5",
+              "from": "sax@1.1.5",
+              "resolved": "https://registry.npmjs.org/sax/-/sax-1.1.5.tgz"
+            },
+            "xml2js": {
+              "version": "0.4.15",
+              "from": "xml2js@0.4.15",
+              "resolved": "https://registry.npmjs.org/xml2js/-/xml2js-0.4.15.tgz"
+            },
+            "xmlbuilder": {
+              "version": "2.6.2",
+              "from": "xmlbuilder@2.6.2",
+              "resolved": "https://registry.npmjs.org/xmlbuilder/-/xmlbuilder-2.6.2.tgz",
+              "dependencies": {
+                "lodash": {
+                  "version": "3.5.0",
+                  "from": "lodash@~3.5.0",
+                  "resolved": "https://registry.npmjs.org/lodash/-/lodash-3.5.0.tgz"
+                }
+              }
+            },
+            "jmespath": {
+              "version": "0.15.0",
+              "from": "jmespath@0.15.0",
+              "resolved": "https://registry.npmjs.org/jmespath/-/jmespath-0.15.0.tgz"
+            }
+          }
+        },
+        "when": {
+          "version": "3.7.7",
+          "from": "when@^3.6.4",
+          "resolved": "https://registry.npmjs.org/when/-/when-3.7.7.tgz"
+        }
+      }
+    },
     "glob": {
       "version": "5.0.15",
       "from": "https://registry.npmjs.org/glob/-/glob-5.0.15.tgz",
