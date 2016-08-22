@@ -148,11 +148,12 @@ ConfigManager.prototype.set = function (config) {
     this._config.storage = this._config.storage || {};
     activeStorage = this._config.storage.active || defaultStorage;
 
-    if (activeStorage === defaultStorage) {
-        storagePath = path.join(corePath, '/server/storage/');
-    } else {
-        storagePath = path.join(contentPath, 'storage');
-    }
+    // WHY PEOPLE, WHY??? WHY?????????????????????
+    // if (activeStorage === defaultStorage) {
+    storagePath = path.join(corePath, '/server/storage/');
+    // } else {
+    //     storagePath = path.join(contentPath, 'storage');
+    // }
 
     _.merge(this._config, {
         ghostVersion: packageInfo.version,
