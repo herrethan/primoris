@@ -40,11 +40,11 @@ config = {
         storage: {
             active: 'ghost-s3',
             'ghost-s3': {
-                accessKeyId: 'AKIAJDVBT5QGBHQXZGRQ',
-                secretAccessKey: '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',
-                bucket: 'primoris',
-                region: 'us-east-1',
-                assetHost: 'https://s3-us-east-1.amazonaws.com/primoris'
+                accessKeyId: process.env.S3_ACCESS_KEY_ID,
+                secretAccessKey: process.env.S3_ACCESS_SECRET_KEY,
+                bucket: process.env.S3_BUCKET_NAME,
+                region: process.env.S3_BUCKET_REGION,
+                assetHost: process.env.S3_ASSET_HOST_URL
             }
         }
     },
