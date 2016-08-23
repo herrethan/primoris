@@ -3559,6 +3559,7 @@ body:not(.post-template) .post-title {
 @media (min-width: 47.9375rem) {
   .search-wrap {
     right: 0.9rem;
+    opacity: 0;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
@@ -3566,6 +3567,7 @@ body:not(.post-template) .post-title {
 }
 .search-opened .search-wrap {
   transform: translateY(0);
+  opacity: 1;
   transition: 0.1s ease-out transform;
   -webkit-transition: 0.1s ease-out -webkit-transform;
   -moz-transition: 0.1s ease-out -moz-transform;
