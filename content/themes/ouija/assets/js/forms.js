@@ -11,7 +11,8 @@
       $.post('/ghost/api/v0.1/apply', {
         name: $('input[name="name"]').val(),
         email: $('input[name="email"]').val(),
-        phone: $('input[name="phone"]').val()
+        phone: $('input[name="phone"]').val(),
+        recaptcha: $('.g-recaptcha-response').val()
       }).done(function(a){
         console.log('yah', a);
       }).fail(function(a){

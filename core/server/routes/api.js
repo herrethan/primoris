@@ -133,12 +133,9 @@ apiRoutes = function apiRoutes(middleware) {
     // ## Ethan's big hack for submitting application forms
     router.post('/apply', function (req, res) {
         
-        console.log(req.body);
-
         var nodemailer = require('nodemailer');
-        var validate = require('validate.js');
+        // var validate = require('validate.js');
         var mg = require('nodemailer-mailgun-transport');
-
         // API key from www.mailgun.com/cp (free up to 10K monthly emails)
         var auth = {
           auth: {
@@ -146,29 +143,58 @@ apiRoutes = function apiRoutes(middleware) {
             domain: 'app3d6bf474137f4dcab1b2bd05a9ff89f7.mailgun.org'
           }
         }
-
         var nodemailerMailgun = nodemailer.createTransport(mg(auth));
 
-        nodemailerMailgun.sendMail({
-          from: 'myemail@example.com',
-          to: 'herrethan@gmail.com', // An array if you have multiple recipients.
-          // cc:'second@domain.com',
-          // bcc:'secretagent@company.gov',
-          subject: 'words!',
-          // 'h:Reply-To': 'reply2this@company.com',
-          html: '<b>Wow, here:</b>' + '<p>' + req.body.name + req.body.email + req.body.phone + '</p>'
-          // text: 'Mailgun rocks, pow pow!'
-        }, function (err, info) {
-          if (err) {
-            console.log('bad eggs: ' + err);
-            res.sendStatus(500);
-          }
-          else {
-            console.log('good eggs: ' + info);
-            res.sendStatus(200);
-          }
+        verifyRecaptcha(req.body['recaptcha'], function(success) {
+            if (success) {
+                nodemailerMailgun.sendMail({
+                  from: 'primorisbot@example.com',
+                  to: 'herrethan@gmail.com', // An array if you have multiple recipients.
+                  // cc:'second@domain.com',
+                  // bcc:'secretagent@company.gov',
+                  subject: 'dog!',
+                  // 'h:Reply-To': 'reply2this@company.com',
+                  html: '<b>OK, here:</b>' + '<p>' + req.body.name + req.body.email + req.body.phone + '</p>'
+                  // text: 'Mailgun rocks, pow pow!'
+                }, function (err, info) {
+                  if (err) {
+                    console.log('bad eggs: ' + err);
+                    res.sendStatus(500);
+                  }
+                  else {
+                    console.log('good eggs: ' + info);
+                    res.end(JSON.stringify({ success: true }));
+                  }
+                });
+            } else {
+                res.end(JSON.stringify({ success: false, reason: 'Captcha failed' }));
+                // TODO: take them back to the previous page
+                // and for the love of everyone, restore their inputs
+            }
         });
+
     });
+
+    verifyRecaptcha = function(key, callback) {
+        var https = require('https');
+        var path = 'https://www.google.com/recaptcha/api/siteverify?secret=';
+        var SECRET = '6LeiOygTAAAAACe96EFzAT8K_mBK8CNMbio5hr_q';
+        https.get( path + SECRET + '&response=' + key, function(res) {
+            var data = '';
+            res.on('data', function (chunk) {
+                data += chunk.toString();
+            });
+            res.on('end', function() {
+                try {
+                    var parsedData = JSON.parse(data);
+                    console.log('reCaptcha success: '+parsedData);
+                    callback(parsedData.success);
+                } catch (e) {
+                    callback(false);
+                }
+            });
+        });
+    };
     // ## End Ethan's hack
 
 
