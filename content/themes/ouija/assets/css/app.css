@@ -3586,26 +3586,96 @@ body:not(.post-template) .post-title {
 .page-calendar .main-header {
   height: auto;
 }
+.page-calendar .content {
+  overflow: visible;
+}
 .page-calendar .post-header {
-  postion: relative;
+  position: absolute;
+  width: 100%;
+  margin-bottom: 0;
+  top: -1.6em;
+  left: 0;
 }
 .page-calendar .post-title {
   display: none;
 }
 .page-calendar .post-title.current {
   display: block;
+  margin-top: 0;
+  line-height: 1em;
+  height: 1em;
+  text-transform: uppercase;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 1.5em;
+}
+@media (min-width: 30rem) {
+  .page-calendar .post-title.current {
+    font-size: 2em;
+  }
 }
 .page-calendar .post-content .calendar {
   display: none;
 }
 .page-calendar .post-content .calendar.current {
   display: table;
+  margin-top: 0;
 }
 .calendar-arrows {
   position: absolute;
-  right: 0;
-  top: 0;
+  left: 0;
+  top: -3.6rem;
 }
-.calendar .muted {
-  opacity: 0.5;
+.calendar-arrows button {
+  background-color: white;
+  outline: none;
+  border-radius: 2px;
+}
+@media (min-width: 30rem) {
+  .calendar-arrows {
+    left: auto;
+    right: 0;
+    top: 0;
+  }
+}
+table.calendar {
+  background-color: #F6F6F6;
+  font-size: 0.5em;
+}
+@media (min-width: 30rem) {
+  table.calendar {
+    font-size: 1em;
+  }
+}
+table.calendar tr {
+  background-color: transparent;
+}
+table.calendar thead td {
+  text-align: center;
+}
+table.calendar tbody td {
+  padding: 0;
+  width: 14.28%;
+  border: none;
+  position: relative;
+  background-color: transparent;
+}
+table.calendar tbody td:after {
+  content: '';
+  display: block;
+  margin-top: 100%;
+}
+table.calendar tbody td > div {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 2px;
+  right: 2px;
+  background-color: white;
+}
+table.calendar tbody td:first-child > div {
+  left: 4px;
+}
+table.calendar tbody td:last-child > div {
+  right: 4px;
 }

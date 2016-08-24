@@ -179,7 +179,7 @@ code, tt {
   white-space: pre-wrap;
   border: #E3EDF3 1px solid;
   background: #F7FAFB;
-  border-radius: 2px;
+  border-radius: @border-radius;
   -webkit-font-feature-settings: "liga" 0;
   -moz-font-feature-settings: "liga" 0;
   font-feature-settings: "liga" 0;
@@ -197,7 +197,7 @@ pre {
   white-space: pre;
   overflow: auto;
   background: #F7FAFB;
-  border-radius: 2px;
+  border-radius: @border-radius;
 }
 
 pre code, pre tt {
@@ -218,7 +218,7 @@ kbd {
   font-size: 0.9em;
   font-weight: 700;
   background: #F4F4F4;
-  border-radius: 2px;
+  border-radius: @border-radius;
   box-shadow:
       0 1px 0 rgba(0, 0, 0, 0.2),
       0 1px 0 0 #fff inset;
@@ -259,7 +259,7 @@ table table table { background-color: #FFF; }
 
 table tbody > tr:nth-child(odd) > td,
 table tbody > tr:nth-child(odd) > th {
-    background-color: #F6F6F6;
+    background-color: @wild-sand;
 }
 
 table.plain tbody > tr:nth-child(odd) > td,
@@ -1210,7 +1210,7 @@ body:not(.post-template) .post-title {
     font-family: "Open Sans", sans-serif;
     color: rgba(255,255,255,0.8);
     border: rgba(255,255,255,0.5) 1px solid;
-    border-radius: 2px;
+    border-radius: @border-radius;
     transition: all 0.5s ease;
 }
 .read-next-story.prev .post:before {
@@ -1315,7 +1315,7 @@ body:not(.post-template) .post-title {
     padding: 0 15px;
     border: #bfc8cd 1px solid;
     text-decoration: none;
-    border-radius: 2px;
+    border-radius: @border-radius;
     transition: border 0.3s ease;
 }
 
@@ -1382,7 +1382,7 @@ body:not(.post-template) .post-title {
     margin-top: 3rem;
     text-align: center;
     background: #f5f8fa;
-    border-radius: 2px;
+    border-radius: @border-radius;
 }
 
 .gh-subscribe-title {
@@ -1410,7 +1410,7 @@ body:not(.post-template) .post-title {
     box-sizing: border-box;
     width: 100%;
     margin: 0;
-    border-radius: 2px 0 0 2px;
+    border-radius: @border-radius 0 0 2px;
     transition: all ease 0.5s;
 }
 

@@ -3,9 +3,17 @@
   .main-header {
     height: auto;
   }
+  
+  .content {
+    overflow: visible;
+  }
 
   .post-header {
-    postion: relative;
+    position: absolute;
+    width: 100%;
+    margin-bottom: 0;
+    top: -1.6em;
+    left: 0;
   }
 
   .post-title {
@@ -13,6 +21,16 @@
 
     &.current {
       display: block;
+      margin-top: 0;
+      line-height: 1em;
+      height: 1em;
+      text-transform: uppercase;
+      text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+      color: white;
+      font-size: 1.5em;
+      @media(min-width: @screen-sm-min){
+        font-size: 2em;
+      }
     }
   }
 
@@ -21,19 +39,74 @@
 
     &.current {
       display: table;
+      margin-top: 0;
     }
   }
 }
 
 .calendar-arrows {
   position: absolute;
-  right: 0;
-  top: 0;
+  left: 0;
+  top: -@gutter*2;
+  
+  button {
+    background-color: white;
+    outline: none;
+    border-radius: @border-radius;
+  }
+
+  @media(min-width: @screen-sm-min){
+    left: auto;
+    right: 0;
+    top: 0;
+  }
 }
 
-.calendar {
-
+table.calendar {
+  background-color: @wild-sand;
+  font-size: 0.5em;
+  
   .muted {
-    opacity: 0.5;
+    // opacity: 0.5;
   }
+  
+  @media(min-width: @screen-sm-min){
+    font-size: 1em;
+  }
+
+  tr {
+    background-color: transparent;
+  }
+  thead td {
+    text-align: center;
+  }
+  tbody td {
+    padding: 0;
+    width: 14.28%;
+    border: none;
+    position: relative;
+    background-color: transparent;
+  
+    &:after {
+      content: '';
+      display: block;
+      margin-top: 100%;
+    }
+
+    > div {
+      position: absolute;
+      top: 2px;
+      bottom: 2px;
+      left: 2px;
+      right: 2px;
+      background-color: white;
+    }
+    &:first-child > div {
+      left: 4px;
+    }
+    &:last-child > div {
+      right: 4px;
+    }
+  }
+
 }
