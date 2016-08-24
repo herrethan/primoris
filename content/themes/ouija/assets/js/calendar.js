@@ -4,7 +4,7 @@
   // start and end months for calendar year
   var startDate = moment('09-2016', 'MM-YYYY');
   var endDate = moment('07-2017', 'MM-YYYY');
-  
+
   var now = moment();
   var events = {};
 
@@ -30,10 +30,10 @@
     var postContent = $('#post-content').text().replace(/[\n\r]/g, '');
 
     postContent.split('[EVENT]').forEach(function(eventString){
-      
+
       if(eventString.indexOf('[name]') < 0 ||
          eventString.indexOf('[date]') < 0) return;
-      
+
       var entry = {};
 
       eventString.split('[').forEach(function(prop){
@@ -42,12 +42,12 @@
         if(key === 'repeat') value = value.split(',');
         if(key.length && value.length) entry[key] = value;
       });
-      
+
       // create a dictionary of entries
       addNewEntry(entryDate(entry.date), entry);
-      
+
       if(!_.isEmpty(entry.repeat)){
-        
+
         var parentTime = entry.time
         entry.repeat.forEach(function(date){
 
@@ -94,33 +94,33 @@
         weekdays.forEach(function(){
           var id = date.format('MM-DD-YYYY');
           inMonth = date.month() === month;
-          week += '<td>';
-          week += '<div class="date';
-          if(!inMonth) week += ' muted';
-          week += '">' + date.date() + '</div>';
+          week += '<td><div>';
 
           // add event entries if there are any for this day
           if(events[id] && inMonth){
+            week += '<div class="events-'+events[id].length+'-up">';
             events[id].forEach(function(entry, i){
-              week += '<div class="event event-'+ entry.type +' '+ (i+1) +'-up">'+
-                        '<a href="javascript:;">'+
-                          '<span class="event-name">'+ entry.name +'</span>'+
-                          '<span class="event-time">'+ entry.time +'</span>'+              
-                          '<section class="even-info">'+
-                            '<h2>'+ entry.name +'</h2>'+
-                            '<h3>'+ entry.time +'</h3>'+
-                            '<p>'+ entry.description +'</p>'+
-                          '</section>'+
-                        '</a>'+
-                      '</div>';
+              week += '<a class="event event-'+ entry.type +'">'+
+                        '<span class="event-name">'+ entry.name +'</span>'+
+                        '<span class="event-time">'+ entry.time +'</span>'+
+                        '<section class="event-info">'+
+                          '<h2>'+ entry.name +'</h2>'+
+                          '<h3>'+ entry.time +'</h3>'+
+                          '<p>'+ (entry.description || '') +'</p>'+
+                        '</section>'+
+                      '</a>';
             });
+            week += '</div>'
           }
-          week += '</td>';
+          week += '<span class="date';
+          if(!inMonth) week += ' muted';
+          week += '">' + date.date() + '</span>';
+          week += '</div></td>';
           date.add(1, 'days')
         });
         week += '</tr>';
         weeks.push(week);
-        
+
       } while(inMonth);
 
       var $title = $('<h1 class="post-title">'+monthName+'</h1>');
@@ -139,16 +139,16 @@
     }
 
     var toMonth = function(date){
-      
+
       var dateString = date.format('MM-YYYY');
       var startMonthString = startDate.format('MM-YYYY');
       var endMonthString = moment(endDate).subtract(1, 'months').format('MM-YYYY');
-      
+
       _.each($monthCalendars, function(value, key){
         $monthTitles[key].removeClass('current');
         $monthCalendars[key].removeClass('current');
       });
-      
+
       $monthTitles[dateString].addClass('current');
       $monthCalendars[dateString].addClass('current');
       $buttonPrev.prop('disabled', false);

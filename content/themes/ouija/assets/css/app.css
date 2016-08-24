@@ -3614,6 +3614,9 @@ body:not(.post-template) .post-title {
     font-size: 2em;
   }
 }
+.page-calendar .post-content {
+  padding-top: 3.6rem;
+}
 .page-calendar .post-content .calendar {
   display: none;
 }
@@ -3678,4 +3681,124 @@ table.calendar tbody td:first-child > div {
 }
 table.calendar tbody td:last-child > div {
   right: 4px;
+}
+.date {
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+.event {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+}
+.event:hover {
+  background-color: #e6e6e6;
+}
+.events-1-up .event {
+  height: 100%;
+}
+.events-2-up .event {
+  height: 50%;
+}
+.events-2-up .event + .event {
+  top: 50%;
+}
+.events-3-up .event {
+  height: 33.33%;
+}
+.events-3-up .event:first-child + .event {
+  top: 33.33%;
+}
+.events-3-up .event + .event + .event {
+  top: 66.66%;
+}
+.event > span {
+  display: none;
+}
+.event .event-info {
+  display: none;
+  position: absolute;
+  width: 10.8rem;
+  height: auto;
+  bottom: 75%;
+  padding: 0.9rem;
+  color: #3A4145;
+  z-index: 1;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+}
+@media (min-width: 30rem) {
+  .event .event-info {
+    width: 21.6rem;
+  }
+}
+.event .event-info:after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -4px;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  transform: rotate(45deg);
+}
+td:nth-child(1) .event .event-info,
+td:nth-child(2) .event .event-info,
+td:nth-child(3) .event .event-info {
+  left: 0.9rem;
+}
+td:nth-child(1) .event .event-info:after,
+td:nth-child(2) .event .event-info:after,
+td:nth-child(3) .event .event-info:after {
+  left: 2px;
+}
+td:nth-child(4) .event .event-info,
+td:nth-child(5) .event .event-info,
+td:nth-child(6) .event .event-info,
+td:nth-child(7) .event .event-info {
+  right: 0.9rem;
+}
+td:nth-child(4) .event .event-info:after,
+td:nth-child(5) .event .event-info:after,
+td:nth-child(6) .event .event-info:after,
+td:nth-child(7) .event .event-info:after {
+  right: 2px;
+}
+.event:hover .event-info {
+  display: block;
+}
+.event-no-school {
+  background-color: #52C0EC;
+}
+.event-no-school:hover {
+  background-color: #1591c3;
+}
+.event-school-event {
+  background-color: #FFF7A0;
+}
+.event-school-event:hover {
+  background-color: #ffee3a;
+}
+.event-parents-only {
+  background-color: #88B840;
+}
+.event-parents-only:hover {
+  background-color: #6c9233;
+}
+.event-field-trip {
+  background-color: #FAAD31;
+}
+.event-field-trip:hover {
+  background-color: #f29806;
+}
+.event-open-house {
+  background-color: #7B649A;
+}
+.event-open-house:hover {
+  background-color: #62507b;
 }
