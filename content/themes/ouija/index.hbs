@@ -11,23 +11,22 @@
   <div class="hero hero-5 screen-md-and-up" style="background-image: url({{asset 'img/dancin.jpg'}})"></div>
   <div class="hero hero-6 screen-md-and-up" style="background-image: url({{asset 'img/julian.jpg'}})"></div>
   <div class="hero hero-7 screen-md-and-up" style="background-image: url({{asset 'img/pastels.jpg'}})"></div>
-  
+
   <div class="search-wrap">
-    <input type="text" class="search" placeholder="Search Primoris">
-  <!--  <script>
-    (function() {
-      var cx = '014882125473019171608:yei_lhwb04w';
-      var gcse = document.createElement('script');
-      gcse.type = 'text/javascript';
-      gcse.async = true;
-      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(gcse, s);
-    })();
-  </script>
-  <gcse:search></gcse:search> -->
+    <script>
+      (function() {
+        var cx = '014882125473019171608:yei_lhwb04w';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    </script>
+    <gcse:search></gcse:search>
   </div>
-  <nav class="nav-main">
+  <nav class="nav-main content-max-width">
     {{#if @blog.logo}}
     <a class="logo-banner" href="{{@blog.url}}">
       <img src="{{@blog.logo}}" alt="{{@blog.title}}"/>
@@ -46,15 +45,15 @@
 
 {{!-- The main content area on the homepage --}}
 <main id="content" class="content" role="main">
-  
-  <div class="row expanded small-collapse">
+
+  <div class="row small-collapse content-max-width">
     <div class="column large-6">
       <article class="inner post promo-vid">
         <header class="post-header">
           <h2 class="post-title">Why Primoris?</h2>
         </header>
         <section class="post-content">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/c24G4Il9Ih8?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/c24G4Il9Ih8?rel=0" frameborder="0" allowfullscreen></iframe>
         </section>
       </article>
       <article class="inner post">
