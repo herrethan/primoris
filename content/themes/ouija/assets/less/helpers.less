@@ -53,6 +53,11 @@
   width: 80%;
   max-width: @inner-content-max-width;
   margin: 0 auto;
+
+  @media(min-width: @screen-lg-min) {
+    width: auto;
+    max-width: none;
+  }
 }
 
 /* Centres vertically yo. (IE8+) */

@@ -732,26 +732,30 @@ margin on the iframe, cause it breaks stuff. */
 .post {
     margin: @gutter*2 auto;
     padding-bottom: @gutter*2;
-    border-bottom: #EBF2F6 1px solid;
+    // border-bottom: #EBF2F6 1px solid;
     word-wrap: break-word;
+
+    @media(min-width: @screen-lg-min) {
+      margin: @gutter*2;
+    }
 }
 
 /* Add a little circle in the middle of the border-bottom on our .post
    just for the lolz and stylepoints. */
-.post:after {
-    display: block;
-    content: "";
-    width: 7px;
-    height: 7px;
-    border: #E7EEF2 1px solid;
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    margin-left: -5px;
-    background: #FFF;
-    border-radius: 50%;
-    box-shadow: #FFF 0 0 0 5px;
-}
+// .post:after {
+//     display: block;
+//     content: "";
+//     width: 7px;
+//     height: 7px;
+//     border: #E7EEF2 1px solid;
+//     position: absolute;
+//     bottom: -5px;
+//     left: 50%;
+//     margin-left: -5px;
+//     background: #FFF;
+//     border-radius: 50%;
+//     box-shadow: #FFF 0 0 0 5px;
+// }
 
 body:not(.post-template) .post-title {
     font-size: 3.6rem;

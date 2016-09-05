@@ -153,20 +153,19 @@
 .search-wrap {
   display: block;
   position: absolute;
-  background: white;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   top: @nav-height-sm;
   right: 0;
-  width: 100%;
-  max-width: 400px;
+  left: 0;
+  opacity: 0;
   transform: translateY(-100%);
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
 
   @media(min-width: @screen-md-min){
+    left: @half-gutter;
     right: @half-gutter;
-    opacity: 0;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
@@ -188,6 +187,11 @@
   // google custom search
   .gsc-control-cse {
     padding: 0;
+
+    @media(min-width: @screen-md-min){
+      max-width: @screen-md-min;
+      float: right;
+    }
 
     form.gsc-search-box {
       padding: 0;
@@ -231,5 +235,5 @@
 
 // google custom search type-ahead
 .gssb_c {
-  top: 45px !important;
+  margin-top: 0;
 }

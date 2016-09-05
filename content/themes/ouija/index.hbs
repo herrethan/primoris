@@ -12,7 +12,7 @@
   <div class="hero hero-6 screen-md-and-up" style="background-image: url({{asset 'img/julian.jpg'}})"></div>
   <div class="hero hero-7 screen-md-and-up" style="background-image: url({{asset 'img/pastels.jpg'}})"></div>
 
-  <div class="search-wrap">
+  <div class="search-wrap content-max-width">
     <script>
       (function() {
         var cx = '014882125473019171608:yei_lhwb04w';
@@ -50,18 +50,19 @@
     <div class="column large-6">
       <article class="inner post promo-vid">
         <header class="post-header">
-          <h2 class="post-title">Why Primoris?</h2>
+          <h2 class="post-title">Tolle Ingenium: Lift Your Talent</h2>
         </header>
         <section class="post-content">
+          <p>Primoris Academy provides a nurturing academic environment for inquisitive, young scholars.</p>
           <iframe width="560" height="315" src="https://www.youtube.com/embed/c24G4Il9Ih8?rel=0" frameborder="0" allowfullscreen></iframe>
         </section>
       </article>
       <article class="inner post">
         <header class="post-header">
-          <h2 class="post-title">Tolle Ingenium: Lift Your Talent</h2>
+          <h2 class="post-title">Our Mission</h2>
         </header>
         <section class="post-content">
-          <p>Primoris Academy provides a nurturing academic environment for inquisitive, young scholars.  Our students are the heart of our school and are supported by a devoted faculty and caring parents. This support matrix facilitates a future forward approach in developing generations of the next great thinkers. We are helping beautiful minds exercise their full potential and achieve their dreams.</p>
+          <p>Our students are the heart of our school and are supported by a devoted faculty and caring parents. This support matrix facilitates a future forward approach in developing generations of the next great thinkers. We are helping beautiful minds exercise their full potential and achieve their dreams.</p>
           <p>Primoris Academy is an independent private school that places children into classes based upon ability, not chronological age. It is a unique educational environment where children can learn at an accelerated rate and reach their maximum potential. Even our youngest students take classes in Forensic Microbiology, Latin, and Golf. Our students are immersed academically and intellectually throughout the day. Primoris Academy works to develop creative and critical thinking skills and to instill in each student a lasting love of learning.</p>
         </section>
       </article>
@@ -71,4 +72,10 @@
     {{> "loop"}}
     </div>
   </div>
+  <div class="row expanded">
+    <div id="map"></div>
+  </div>
+  <script src="http://maps.googleapis.com/maps/api/js?v=3.25"></script>
+  <script src="{{asset 'js/map.js'}}"></script>
+
 </main>

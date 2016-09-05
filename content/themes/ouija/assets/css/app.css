@@ -2497,6 +2497,12 @@ select[multiple] {
   max-width: 71rem;
   margin: 0 auto;
 }
+@media (min-width: 64.0625rem) {
+  .inner {
+    width: auto;
+    max-width: none;
+  }
+}
 /* Centres vertically yo. (IE8+) */
 .vertical {
   display: table-cell;
@@ -2681,25 +2687,15 @@ margin on the iframe, cause it breaks stuff. */
 .post {
   margin: 3.6rem auto;
   padding-bottom: 3.6rem;
-  border-bottom: #EBF2F6 1px solid;
   word-wrap: break-word;
+}
+@media (min-width: 64.0625rem) {
+  .post {
+    margin: 3.6rem;
+  }
 }
 /* Add a little circle in the middle of the border-bottom on our .post
    just for the lolz and stylepoints. */
-.post:after {
-  display: block;
-  content: "";
-  width: 7px;
-  height: 7px;
-  border: #E7EEF2 1px solid;
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  margin-left: -5px;
-  background: #FFF;
-  border-radius: 50%;
-  box-shadow: #FFF 0 0 0 5px;
-}
 body:not(.post-template) .post-title {
   font-size: 3.6rem;
 }
@@ -3406,6 +3402,46 @@ body:not(.post-template) .post-title {
 .hero-7 {
   animation-delay: 36s;
 }
+.blog-block {
+  background-color: #F6F6F6;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border: 0.45rem solid #F6F6F6;
+  top: -5.4rem;
+}
+.blog-block section,
+.blog-block footer {
+  padding: 0 3.6rem;
+}
+.blog-block-img {
+  height: 9rem;
+  background-size: cover;
+  background-position: center center;
+}
+.blog-block-date {
+  text-align: center;
+  background-color: #8D9A93;
+  color: white;
+  position: absolute;
+  top: -0.45rem;
+  left: 0.9rem;
+  padding: 1.8rem 1.8rem 0.9rem;
+}
+.blog-block-date .blog-block-day {
+  display: block;
+  font-size: 3em;
+  font-weight: 600;
+}
+.blog-block-date .blog-block-month {
+  display: block;
+  font-size: 2em;
+  text-transform: uppercase;
+}
+.blog-block-date .blog-block-year {
+  display: block;
+}
+#map {
+  height: 28.8rem;
+}
 .site-wrapper {
   position: relative;
   z-index: 10;
@@ -3549,21 +3585,20 @@ body:not(.post-template) .post-title {
 .search-wrap {
   display: block;
   position: absolute;
-  background: white;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   top: 2.7rem;
   right: 0;
-  width: 100%;
-  max-width: 400px;
+  left: 0;
+  opacity: 0;
   transform: translateY(-100%);
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
 }
 @media (min-width: 47.9375rem) {
   .search-wrap {
+    left: 0.9rem;
     right: 0.9rem;
-    opacity: 0;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
@@ -3584,6 +3619,12 @@ body:not(.post-template) .post-title {
 }
 .search-wrap .gsc-control-cse {
   padding: 0;
+}
+@media (min-width: 47.9375rem) {
+  .search-wrap .gsc-control-cse {
+    max-width: 47.9375rem;
+    float: right;
+  }
 }
 .search-wrap .gsc-control-cse form.gsc-search-box {
   padding: 0;
@@ -3621,7 +3662,7 @@ body:not(.post-template) .post-title {
   padding-left: 0;
 }
 .gssb_c {
-  top: 45px !important;
+  margin-top: 0;
 }
 .page-calendar .main-header {
   height: auto;
