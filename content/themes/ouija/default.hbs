@@ -42,8 +42,44 @@
 
     {{!-- The tiny footer at the very bottom --}}
     <footer class="site-footer clearfix">
-      <section class="copyright"><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</section>
-      <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+      <div class="row content-max-width">
+        <section class="column medium-4 large-3">
+          <img src="{{asset 'img/logo-emblum.png'}}" alt="primoris emblum" class="site-footer-emblum">
+        </section>
+        <section class="column medium-4 large-3">
+          <ul>
+            {{navigation}}
+            <li class="social">
+              Follow us:
+              <ul>
+                <li><a><img src="{{asset 'img/icon-facebook.png'}}" alt="facebook"></a></li>
+                <li><a><img src="{{asset 'img/icon-instagram.png'}}" alt="instagram"></a></li>
+                <li><a><img src="{{asset 'img/icon-linkedin.png'}}" alt="linkedin"></a></li>
+                <li><a><img src="{{asset 'img/icon-youtube.png'}}" alt="youtube"></a></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section class="column medium-4 large-6">
+          <ul>
+            <li class="address">
+              <a href="{{@blog.url}}">{{@blog.title}}</a><br>
+              120 Washington Avenue<br>
+              Westwood, NJ 07675
+            </li>
+            <li>Phone: (201) 722-1000</li>
+            <li>Fax: (201) 722-1001</li>
+            <li class="copyright">Copyright &copy; {{date format="YYYY"}}
+              {{@blog.title}},
+              all rights reserved.
+            </li>
+            <li>
+              Proudly published with <a href="https://ghost.org">Ghost</a>,
+              designed by <a href="http://herrmedia.com">herrmedia</a>
+            </li>
+          </ul>
+        </section>
+      </div>
     </footer>
 
   </div>

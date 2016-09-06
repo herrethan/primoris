@@ -3283,37 +3283,6 @@ body:not(.post-template) .post-title {
   line-height: 1.4em;
 }
 /* ==========================================================================
-   11. Footer - The bottom of every page
-   ========================================================================== */
-.site-footer {
-  position: relative;
-  margin: 8rem 0 0 0;
-  padding: 1rem 15px;
-  font-family: "Open Sans", sans-serif;
-  font-size: 1rem;
-  line-height: 1.75em;
-  color: #BBC7CC;
-}
-.site-footer a {
-  color: #BBC7CC;
-  text-decoration: none;
-  font-weight: bold;
-}
-.site-footer a:hover {
-  border-bottom: #bbc7cc 1px solid;
-}
-.poweredby {
-  display: block;
-  width: 45%;
-  float: right;
-  text-align: right;
-}
-.copyright {
-  display: block;
-  width: 45%;
-  float: left;
-}
-/* ==========================================================================
    13. Animations
    ========================================================================== */
 /* Used to fade in title/desc on the home page */
@@ -3663,6 +3632,43 @@ body:not(.post-template) .post-title {
 }
 .gssb_c {
   margin-top: 0;
+}
+.site-footer {
+  position: relative;
+  font-family: "Open Sans", sans-serif;
+  color: #8D9A93;
+  padding: 1.8rem;
+  font-size: 1.25rem;
+  background-color: #F6F6F6;
+}
+.site-footer a {
+  color: #8D9A93;
+  text-decoration: none;
+  font-weight: bold;
+}
+.site-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.site-footer .social li {
+  display: inline-block;
+  margin-right: 0.9rem;
+}
+.site-footer .social a {
+  opacity: 0.4;
+}
+.site-footer .social a:focus,
+.site-footer .social a:hover,
+.site-footer .social a:active {
+  opacity: 0.8;
+}
+.site-footer .social img {
+  width: 20px;
+}
+.site-footer-emblum {
+  max-width: 200px;
+  opacity: 0.5;
 }
 .page-calendar .main-header {
   height: auto;
