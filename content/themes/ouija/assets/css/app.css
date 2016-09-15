@@ -2522,10 +2522,6 @@ select[multiple] {
   margin: 0 auto;
 }
 @media (min-width: 64.0625rem) {
-  .inner {
-    width: auto;
-    max-width: none;
-  }
 }
 /* Centres vertically yo. (IE8+) */
 .vertical {
@@ -2601,7 +2597,7 @@ tt {
   white-space: pre-wrap;
   border: #E3EDF3 1px solid;
   background: #F7FAFB;
-  border-radius: 2px;
+  border-radius: 0;
   -webkit-font-feature-settings: "liga" 0;
   -moz-font-feature-settings: "liga" 0;
   font-feature-settings: "liga" 0;
@@ -2618,7 +2614,7 @@ pre {
   white-space: pre;
   overflow: auto;
   background: #F7FAFB;
-  border-radius: 2px;
+  border-radius: 0;
 }
 pre code,
 pre tt {
@@ -2638,7 +2634,7 @@ kbd {
   font-size: 0.9em;
   font-weight: 700;
   background: #F4F4F4;
-  border-radius: 2px;
+  border-radius: 0;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 0 #fff inset;
 }
 table {
@@ -2714,9 +2710,6 @@ margin on the iframe, cause it breaks stuff. */
   word-wrap: break-word;
 }
 @media (min-width: 64.0625rem) {
-  .post {
-    margin: 3.6rem;
-  }
 }
 /* Add a little circle in the middle of the border-bottom on our .post
    just for the lolz and stylepoints. */
@@ -3145,7 +3138,7 @@ body:not(.post-template) .post-title {
   font-family: "Open Sans", sans-serif;
   color: rgba(255, 255, 255, 0.8);
   border: rgba(255, 255, 255, 0.5) 1px solid;
-  border-radius: 2px;
+  border-radius: 0;
   transition: all 0.5s ease;
 }
 .read-next-story.prev .post:before {
@@ -3225,7 +3218,7 @@ body:not(.post-template) .post-title {
   padding: 0 15px;
   border: #bfc8cd 1px solid;
   text-decoration: none;
-  border-radius: 2px;
+  border-radius: 0;
   transition: border 0.3s ease;
 }
 .older-posts {
@@ -3282,7 +3275,7 @@ body:not(.post-template) .post-title {
   margin-top: 3rem;
   text-align: center;
   background: #f5f8fa;
-  border-radius: 2px;
+  border-radius: 0;
 }
 .gh-subscribe-title {
   margin-bottom: 0;
@@ -3305,7 +3298,7 @@ body:not(.post-template) .post-title {
   box-sizing: border-box;
   width: 100%;
   margin: 0;
-  border-radius: 2px 0 0 2px;
+  border-radius: 0 0 0 0;
   transition: all ease 0.5s;
 }
 .gh-subscribe .subscribe-email:focus {
@@ -3314,7 +3307,7 @@ body:not(.post-template) .post-title {
 }
 .gh-subscribe button {
   margin-left: -1px;
-  border-radius: 0 2px 2px 0;
+  border-radius: 0 0 0 0;
 }
 .gh-subscribe-rss {
   font-family: 'Open Sans', sans-serif;
@@ -3513,7 +3506,7 @@ body:not(.post-template) .post-title {
     top: 0.9rem;
     left: 0.9rem;
     right: 0.9rem;
-    border-radius: 2px;
+    border-radius: 0;
   }
   .nav-main > ul {
     padding: 0.9rem 0;
@@ -3587,8 +3580,8 @@ body:not(.post-template) .post-title {
 .search-wrap {
   display: block;
   position: absolute;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   top: 2.7rem;
   right: 0;
   left: 0;
@@ -3757,7 +3750,7 @@ body:not(.post-template) .post-title {
 .calendar-arrows button {
   background-color: white;
   outline: none;
-  border-radius: 2px;
+  border-radius: 0;
 }
 @media (min-width: 30rem) {
   .calendar-arrows {
@@ -3855,7 +3848,7 @@ table.calendar tbody td:last-child > div {
   z-index: 1;
   background-color: white;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  border-radius: 2px;
+  border-radius: 0;
 }
 @media (min-width: 30rem) {
   .event .event-info {

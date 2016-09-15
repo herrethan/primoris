@@ -12,35 +12,7 @@
   <div class="hero hero-6 screen-md-and-up" style="background-image: url({{asset 'img/julian.jpg'}})"></div>
   <div class="hero hero-7 screen-md-and-up" style="background-image: url({{asset 'img/pastels.jpg'}})"></div>
 
-  <div class="search-wrap content-max-width">
-    <script>
-      (function() {
-        var cx = '014882125473019171608:yei_lhwb04w';
-        var gcse = document.createElement('script');
-        gcse.type = 'text/javascript';
-        gcse.async = true;
-        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(gcse, s);
-      })();
-    </script>
-    <gcse:search></gcse:search>
-  </div>
-  <nav class="nav-main content-max-width">
-    {{#if @blog.logo}}
-    <a class="logo-banner" href="{{@blog.url}}">
-      <img src="{{@blog.logo}}" alt="{{@blog.title}}"/>
-    </a>
-    {{/if}}
-    <a class="logo-text screen-md-and-up left" href="{{@blog.url}}">
-      <img src="{{asset 'img/logo-text.png'}}" alt="{{@blog.title}}"/>
-    </a>
-    <button href="javascript:;" class="search-button material-icons">search</button>
-    <ul class="screen-md-and-up right">
-      {{navigation}}
-    </ul>
-    <button href="javascript:;" class="screen-sm-only hamburger material-icons">menu</button>
-  </nav>
+  {{> "nav-bar"}}
 </header>
 
 {{!-- The main content area on the homepage --}}

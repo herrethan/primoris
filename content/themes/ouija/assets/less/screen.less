@@ -736,7 +736,7 @@ margin on the iframe, cause it breaks stuff. */
     word-wrap: break-word;
 
     @media(min-width: @screen-lg-min) {
-      margin: @gutter*2;
+      // margin: @gutter*2;
     }
 }
 
@@ -1433,7 +1433,7 @@ body:not(.post-template) .post-title {
     box-sizing: border-box;
     width: 100%;
     margin: 0;
-    border-radius: @border-radius 0 0 2px;
+    border-radius: @border-radius 0 0 @border-radius;
     transition: all ease 0.5s;
 }
 
@@ -1444,7 +1444,7 @@ body:not(.post-template) .post-title {
 
 .gh-subscribe button {
     margin-left: -1px;
-    border-radius: 0 2px 2px 0;
+    border-radius: 0 @border-radius @border-radius 0;
 }
 
 .gh-subscribe-rss {
