@@ -17,7 +17,7 @@ html {
 body {
   height: 100%;
   max-height: 100%;
-  font-family: 'Pragati Narrow', sans-serif;
+  font-family: 'Benton Condensed Regular', sans-serif;
   letter-spacing: 0.02rem;
   font-size: 1.8rem;
   line-height: 1.75em;
@@ -867,7 +867,9 @@ body:not(.post-template) .post-title {
 }
 
 .post-template .post-title {
-    margin-bottom: 0;
+    margin-bottom: 5px;
+    color: @sushi;
+    font-family: 'Benton Compressed Black', sans-serif;
 }
 
 .post-template .post-meta {
@@ -1082,6 +1084,8 @@ body:not(.post-template) .post-title {
     top: -40px;
     left: 50%;
     margin-left: -40px;
+    margin-top: 0;
+    margin-bottom: 0;
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -1157,27 +1161,21 @@ body:not(.post-template) .post-title {
    ========================================================================== */
 
 .read-next {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: stretch;
-    -webkit-align-items: stretch;
-    -ms-flex-align: stretch;
-    align-items: stretch;
     margin-top: 10rem;
+
+    @media(min-width: @screen-sm-min){
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: stretch;
+      -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+      align-items: stretch;
+    }
 }
 
 .read-next-story {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    min-width: 50%;
     text-decoration: none;
     position: relative;
     text-align: center;
@@ -1185,6 +1183,19 @@ body:not(.post-template) .post-title {
     background: #222 no-repeat center center;
     background-size: cover;
     overflow: hidden;
+    display: block;
+
+    @media(min-width: @screen-sm-min){
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      min-width: 50%;
+    }
 }
 .read-next-story:hover:before {
     background: rgba(0,0,0,0.8);
@@ -1204,17 +1215,26 @@ body:not(.post-template) .post-title {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.5);
     transition: all 0.5s ease;
 }
 
 .read-next-story .post {
     padding-top: 6rem;
     padding-bottom: 6rem;
+    margin-right: 3rem;
+    margin-left: 3rem;
+    position: relative;
+
+    @media(min-width: @screen-lg-min){
+      margin-right: auto;
+      margin-left: auto;
+      max-width: @screen-md-min;
+    }
 }
 
 .read-next-story .post:before {
-    content: "Read This Next";
+    content: "View more recent post";
     padding: 4px 10px 5px;
     text-transform: uppercase;
     font-size: 1.1rem;
@@ -1225,7 +1245,7 @@ body:not(.post-template) .post-title {
     transition: all 0.5s ease;
 }
 .read-next-story.prev .post:before {
-    content: "You Might Enjoy";
+    content: "View older post";
 }
 
 .read-next-story h2 {
@@ -1268,14 +1288,6 @@ body:not(.post-template) .post-title {
     box-sizing: border-box;
 }
 
-/* Correctly position site-footer when next to the .read-next container */
-.read-next + .site-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0;
-}
 
 /* ==========================================================================
    8. Third Party Elements - Embeds from other services

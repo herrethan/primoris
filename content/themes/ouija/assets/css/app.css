@@ -2441,6 +2441,30 @@ select[multiple] {
   -webkit-animation-delay: 700ms !important;
   animation-delay: 700ms !important;
 }
+@font-face {
+  font-family: 'Benton Compressed Black';
+  src: url(../fonts/BentonSansCompressed-Black.eot?#iefix) format('embedded-opentype'), url(../fonts/BentonSansCompressed-Black.otf) format('opentype'), url(../fonts/BentonSansCompressed-Black.woff) format('woff'), url(../fonts/BentonSansCompressed-Black.ttf) format('truetype'), url(../fonts/BentonSansCompressed-Black.svg#BentonSansCompressed-Black) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Benton Compressed Regular';
+  src: url(../fonts/BentonSansCompressed-Regular.eot?#iefix) format('embedded-opentype'), url(../fonts/BentonSansCompressed-Regular.otf) format('opentype'), url(../fonts/BentonSansCompressed-Regular.woff) format('woff'), url(../fonts/BentonSansCompressed-Regular.ttf) format('truetype'), url(../fonts/BentonSansCompressed-Regular.svg#BentonSansCompressed-Regular) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Benton Condensed Regular';
+  src: url(../fonts/BentonSansCondensed-Regular.eot?#iefix) format('embedded-opentype'), url(../fonts/BentonSansCondensed-Regular.otf) format('opentype'), url(../fonts/BentonSansCondensed-Regular.woff) format('woff'), url(../fonts/BentonSansCondensed-Regular.ttf) format('truetype'), url(../fonts/BentonSansCondensed-Regular.svg#BentonSansCondensed-Regular) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Benton Regular';
+  src: url(../fonts/BentonSans-Regular.eot?#iefix) format('embedded-opentype'), url(../fonts/BentonSans-Regular.otf) format('opentype'), url(../fonts/BentonSans-Regular.woff) format('woff'), url(../fonts/BentonSans-Regular.ttf) format('truetype'), url(../fonts/BentonSans-Regular.svg#BentonSans-Regular) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 .clearfix:before,
 .clearfix:after {
   content: " ";
@@ -2522,7 +2546,7 @@ html {
 body {
   height: 100%;
   max-height: 100%;
-  font-family: 'Pragati Narrow', sans-serif;
+  font-family: 'Benton Condensed Regular', sans-serif;
   letter-spacing: 0.02rem;
   font-size: 1.8rem;
   line-height: 1.75em;
@@ -2787,7 +2811,9 @@ body:not(.post-template) .post-title {
   margin-bottom: 3.4rem;
 }
 .post-template .post-title {
-  margin-bottom: 0;
+  margin-bottom: 5px;
+  color: #A7CC46;
+  font-family: 'Benton Compressed Black', sans-serif;
 }
 .post-template .post-meta {
   margin: 0;
@@ -2972,6 +2998,8 @@ body:not(.post-template) .post-title {
   top: -40px;
   left: 50%;
   margin-left: -40px;
+  margin-top: 0;
+  margin-bottom: 0;
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -3038,26 +3066,21 @@ body:not(.post-template) .post-title {
    7. Read More - Next/Prev Post Links
    ========================================================================== */
 .read-next {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: stretch;
-  -webkit-align-items: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
   margin-top: 10rem;
 }
+@media (min-width: 30rem) {
+  .read-next {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+}
 .read-next-story {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  min-width: 50%;
   text-decoration: none;
   position: relative;
   text-align: center;
@@ -3065,6 +3088,20 @@ body:not(.post-template) .post-title {
   background: #222 no-repeat center center;
   background-size: cover;
   overflow: hidden;
+  display: block;
+}
+@media (min-width: 30rem) {
+  .read-next-story {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    min-width: 50%;
+  }
 }
 .read-next-story:hover:before {
   background: rgba(0, 0, 0, 0.8);
@@ -3083,15 +3120,25 @@ body:not(.post-template) .post-title {
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   transition: all 0.5s ease;
 }
 .read-next-story .post {
   padding-top: 6rem;
   padding-bottom: 6rem;
+  margin-right: 3rem;
+  margin-left: 3rem;
+  position: relative;
+}
+@media (min-width: 64.0625rem) {
+  .read-next-story .post {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 47.9375rem;
+  }
 }
 .read-next-story .post:before {
-  content: "Read This Next";
+  content: "View more recent post";
   padding: 4px 10px 5px;
   text-transform: uppercase;
   font-size: 1.1rem;
@@ -3102,7 +3149,7 @@ body:not(.post-template) .post-title {
   transition: all 0.5s ease;
 }
 .read-next-story.prev .post:before {
-  content: "You Might Enjoy";
+  content: "View older post";
 }
 .read-next-story h2 {
   margin-top: 1rem;
@@ -3135,14 +3182,6 @@ body:not(.post-template) .post-title {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-}
-/* Correctly position site-footer when next to the .read-next container */
-.read-next + .site-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 0;
 }
 /* ==========================================================================
    8. Third Party Elements - Embeds from other services
@@ -3372,10 +3411,8 @@ body:not(.post-template) .post-title {
   animation-delay: 36s;
 }
 .blog-block {
-  background-color: #F6F6F6;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   border: 0.45rem solid #F6F6F6;
-  top: -5.4rem;
+  padding: 0;
 }
 .blog-block section,
 .blog-block footer {
@@ -3383,17 +3420,13 @@ body:not(.post-template) .post-title {
 }
 .blog-block-img {
   height: 9rem;
+  display: block;
   background-size: cover;
   background-position: center center;
 }
 .blog-block-date {
   text-align: center;
-  background-color: #8D9A93;
-  color: white;
-  position: absolute;
-  top: -0.45rem;
-  left: 0.9rem;
-  padding: 1.8rem 1.8rem 0.9rem;
+  color: #8D9A93;
 }
 .blog-block-date .blog-block-day {
   display: block;
@@ -3402,7 +3435,7 @@ body:not(.post-template) .post-title {
 }
 .blog-block-date .blog-block-month {
   display: block;
-  font-size: 2em;
+  font-size: 1.5em;
   text-transform: uppercase;
 }
 .blog-block-date .blog-block-year {
@@ -3622,9 +3655,9 @@ body:not(.post-template) .post-title {
   left: 0;
   right: 0;
   width: auto;
-  top: 55px;
+  top: 0;
   height: 400px;
-  padding: 15px;
+  padding: 0.9rem 1.8rem;
 }
 .search-wrap .gsc-control-cse .gsc-webResult.gsc-result,
 .search-wrap .gsc-control-cse .gsc-results .gsc-imageResult {
@@ -3632,6 +3665,11 @@ body:not(.post-template) .post-title {
 }
 .gssb_c {
   margin-top: 0;
+}
+.gsc-adBlock,
+.gsc-adBlockNoHeight,
+.gsc-resultsHeader {
+  display: none !important;
 }
 .site-footer {
   position: relative;

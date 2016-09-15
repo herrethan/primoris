@@ -6,16 +6,16 @@
 {{!-- This is the post loop - each post will be output using this markup --}}
 {{#foreach posts}}
 <article class="blog-block inner {{post_class}}">
-    <header>
-        <div class="blog-block-img" style="background-image: url({{image}})"></div>
-        <time class="blog-block-date">
+    <header class="row">
+        <time class="blog-block-date column small-3">
             <span class="blog-block-day" datetime="{{date format='DD'}}">{{date format="DD"}}</span>
             <span class="blog-block-month" datetime="{{date format='MMM'}}">{{date format="MMM"}}</span>
             <span class="blog-block-year" datetime="{{date format='YYYY'}}">{{date format="YYYY"}}</span>
         </time>
+        <h2 class="post-title column small-9"><a href="{{url}}">{{title}}</a></h2>
     </header>
+    <div class="blog-block-img" style="background-image: url({{image}})"></div>
     <section class="post-excerpt">
-        <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
         <p>{{excerpt words="26"}} <a class="read-more" href="{{url}}">&raquo;</a></p>
     </section>
     <footer class="post-meta">

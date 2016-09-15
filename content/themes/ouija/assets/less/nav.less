@@ -222,9 +222,9 @@
       left: 0;
       right: 0;
       width: auto;
-      top: 55px;
+      top: 0;
       height: 400px;
-      padding: 15px;
+      padding: @half-gutter @gutter;
     }
     .gsc-webResult.gsc-result,
     .gsc-results .gsc-imageResult {
@@ -236,4 +236,11 @@
 // google custom search type-ahead
 .gssb_c {
   margin-top: 0;
+}
+
+// hide google ads
+.gsc-adBlock,
+.gsc-adBlockNoHeight,
+.gsc-resultsHeader {
+  display: none !important;
 }

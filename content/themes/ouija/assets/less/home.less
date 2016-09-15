@@ -45,10 +45,8 @@
 
 .blog-block {
 
-  background-color: @wild-sand;
-  box-shadow: @box-shadow;
   border: @quarter-gutter solid @wild-sand;
-  top: -@gutter*3;
+  padding: 0;
 
   section,
   footer {
@@ -58,6 +56,7 @@
 
 .blog-block-img {
   height: @gutter*5;
+  display: block;
   background-size: cover;
   background-position: center center;
 }
@@ -65,12 +64,7 @@
 .blog-block-date {
 
   text-align: center;
-  background-color: @mantle;
-  color: white;
-  position: absolute;
-  top: -@quarter-gutter;
-  left: @half-gutter;
-  padding: @gutter @gutter @half-gutter;
+  color: @mantle;
 
   .blog-block-day {
     display: block;
@@ -79,7 +73,7 @@
   }
   .blog-block-month {
     display: block;
-    font-size: 2em;
+    font-size: 1.5em;
     text-transform: uppercase;
   }
   .blog-block-year {
