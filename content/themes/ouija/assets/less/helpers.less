@@ -47,22 +47,15 @@
   }
 }
 
-/* Creates a responsive wrapper that makes our content scale nicely */
 .inner {
   position: relative;
-  width: 80%;
-  max-width: @inner-content-max-width;
-  margin: 0 auto;
 
-  @media(min-width: @screen-lg-min) {
-    // width: auto;
-    // max-width: none;
+  @media(min-width: @screen-sm-min) {
+    width: 90%;
+    max-width: @inner-content-max-width;
+    margin: 0 auto;
+  }
+  @media(min-width: @screen-md-min) {
+    width: 80%;
   }
 }
-
-/* Centres vertically yo. (IE8+) */
-.vertical {
-  display: table-cell;
-  vertical-align: middle;
-}
-

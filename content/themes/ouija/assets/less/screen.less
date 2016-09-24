@@ -2,11 +2,10 @@
 html {
   height: 100%;
   max-height: 100%;
-  font-size: 81.3%; //13px
+  font-size: 62.5%; //10px
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   @media(min-width: @screen-md-min){
-    font-size: 62.5%; //10px
     // font-size: 68.8%; //11px
     // font-size: 75%; //12px
     // font-size: 81.3%; //13px
@@ -715,29 +714,19 @@ margin on the iframe, cause it breaks stuff. */
 // }
 
 /* Add subtle load-in animation for content on the home page */
-.home-template .page-title {
-    -webkit-animation: fade-in-down 0.6s;
-    animation: fade-in-down 0.6s;
-    -webkit-animation-delay: 0.2s;
-    animation-delay: 0.2s;
-}
-.home-template .page-description {
-    -webkit-animation: fade-in-down 0.9s;
-    animation: fade-in-down 0.9s;
-    -webkit-animation-delay: 0.1s;
-    animation-delay: 0.1s;
-}
 
 /* Every post, on every page, gets this style on its <article> tag */
 .post {
-    margin: @gutter*2 auto;
-    padding-bottom: @gutter*2;
-    // border-bottom: #EBF2F6 1px solid;
-    word-wrap: break-word;
+  padding-bottom: @gutter*2;
+  word-wrap: break-word;
 
-    @media(min-width: @screen-lg-min) {
-      // margin: @gutter*2;
-    }
+  @media(min-width: @screen-sm-min) {
+    margin: @gutter*2 auto;
+  }
+
+  .home-template & {
+    background-color: white;
+  }
 }
 
 /* Add a little circle in the middle of the border-bottom on our .post
@@ -757,9 +746,9 @@ margin on the iframe, cause it breaks stuff. */
 //     box-shadow: #FFF 0 0 0 5px;
 // }
 
-body:not(.post-template) .post-title {
-    font-size: 3.6rem;
-}
+// body:not(.post-template) .post-title {
+//     font-size: 3.6rem;
+// }
 
 .post-title a {
     color: @cape-cod;
@@ -894,12 +883,10 @@ body:not(.post-template) .post-title {
     margin-top: 0;
     border-bottom: none;
     padding-bottom: 0;
+    padding-left: @gutter;
+    padding-right: @gutter;
 }
 
-/* Kill that stylish little circle that was on the border, too */
-.post-template .post:after {
-    display: none;
-}
 
 /* Keep images centered, and allow images wider than the main
    text column to break out. */

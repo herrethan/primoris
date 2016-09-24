@@ -1,6 +1,26 @@
 .main-header {
   height: 65vh;
   position: relative;
+
+  .home-template &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: url(../img/emblum-white.png);
+    background-repeat: no-repeat;
+    background-color: rgba(0,0,0,0.4);
+    background-size: 50%;
+    background-position: center center;
+  }
+  @media(min-width: @screen-md-min){
+    .home-template &:after {
+      display: none;
+    }
+  }
 }
 
 @duration-in: 100%/(@slideshow-slide-duration*@slideshow-slide-count)*@slideshow-transition-duration + 1;
@@ -43,9 +63,44 @@
 .hero-loop(@slideshow-slide-count);
 
 
+.home-template {
+
+  .page-title {
+    -webkit-animation: fade-in-down 0.6s;
+    animation: fade-in-down 0.6s;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+  }
+
+  .page-description {
+      -webkit-animation: fade-in-down 0.9s;
+      animation: fade-in-down 0.9s;
+      -webkit-animation-delay: 0.1s;
+      animation-delay: 0.1s;
+  }
+
+  main.content {
+    background-color: @wild-sand;
+  }
+
+  @media(min-width: @screen-lg-min) {
+
+    .post {
+      margin-left: 0;
+      margin-right: 0;
+      width: auto;
+    }
+
+    .blog-block {
+      margin-right: 0;
+      margin-left: @gutter*2;
+    }
+  }
+}
+
+
 .blog-block {
 
-  border: @quarter-gutter solid @wild-sand;
   padding: 0;
 
   section,
@@ -65,19 +120,22 @@
 
   text-align: center;
   color: @mantle;
+  padding: @half-gutter;
 
   .blog-block-day {
     display: block;
-    font-size: 3em;
+    font-size: 2em;
+    line-height: 1em;
     font-weight: 600;
   }
   .blog-block-month {
     display: block;
-    font-size: 1.5em;
+    line-height: 1em;
     text-transform: uppercase;
   }
   .blog-block-year {
     display: block;
+    line-height: 1em;
   }
 }
 

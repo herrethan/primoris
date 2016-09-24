@@ -1,13 +1,13 @@
 .site-footer {
     position: relative;
     font-family: "Open Sans", sans-serif;
-    color: @mantle;
+    color: rgba(255,255,255,0.5);
     padding: @gutter;
     font-size: 1.25rem;
-    background-color: @wild-sand;
+    background-color: @black-currant;
 
   a {
-    color: @mantle;
+    color: rgba(255,255,255,0.7);
     text-decoration: none;
     font-weight: bold;
   }
@@ -38,6 +38,10 @@
 
   .copyright {
 
+  }
+
+  &.sub-footer {
+    background-color: darken(@black-currant, 10%);
   }
 }
 

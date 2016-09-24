@@ -2514,30 +2514,28 @@ select[multiple] {
     display: block;
   }
 }
-/* Creates a responsive wrapper that makes our content scale nicely */
 .inner {
   position: relative;
-  width: 80%;
-  max-width: 71rem;
-  margin: 0 auto;
 }
-@media (min-width: 64.0625rem) {
+@media (min-width: 30rem) {
+  .inner {
+    width: 90%;
+    max-width: 71rem;
+    margin: 0 auto;
+  }
 }
-/* Centres vertically yo. (IE8+) */
-.vertical {
-  display: table-cell;
-  vertical-align: middle;
+@media (min-width: 47.9375rem) {
+  .inner {
+    width: 80%;
+  }
 }
 html {
   height: 100%;
   max-height: 100%;
-  font-size: 81.3%;
+  font-size: 62.5%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 @media (min-width: 47.9375rem) {
-  html {
-    font-size: 62.5%;
-  }
 }
 body {
   height: 100%;
@@ -2691,31 +2689,21 @@ margin on the iframe, cause it breaks stuff. */
 /* Big cover image on the home page */
 /* Create a bouncing scroll-down arrow on homepage with cover image */
 /* Add subtle load-in animation for content on the home page */
-.home-template .page-title {
-  -webkit-animation: fade-in-down 0.6s;
-  animation: fade-in-down 0.6s;
-  -webkit-animation-delay: 0.2s;
-  animation-delay: 0.2s;
-}
-.home-template .page-description {
-  -webkit-animation: fade-in-down 0.9s;
-  animation: fade-in-down 0.9s;
-  -webkit-animation-delay: 0.1s;
-  animation-delay: 0.1s;
-}
 /* Every post, on every page, gets this style on its <article> tag */
 .post {
-  margin: 3.6rem auto;
   padding-bottom: 3.6rem;
   word-wrap: break-word;
 }
-@media (min-width: 64.0625rem) {
+@media (min-width: 30rem) {
+  .post {
+    margin: 3.6rem auto;
+  }
+}
+.home-template .post {
+  background-color: white;
 }
 /* Add a little circle in the middle of the border-bottom on our .post
    just for the lolz and stylepoints. */
-body:not(.post-template) .post-title {
-  font-size: 3.6rem;
-}
 .post-title a {
   color: #3A4145;
   text-decoration: none;
@@ -2827,10 +2815,8 @@ body:not(.post-template) .post-title {
   margin-top: 0;
   border-bottom: none;
   padding-bottom: 0;
-}
-/* Kill that stylish little circle that was on the border, too */
-.post-template .post:after {
-  display: none;
+  padding-left: 1.8rem;
+  padding-right: 1.8rem;
 }
 /* Keep images centered, and allow images wider than the main
    text column to break out. */
@@ -3351,6 +3337,25 @@ body:not(.post-template) .post-title {
   height: 65vh;
   position: relative;
 }
+.home-template .main-header:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: url(../img/emblum-white.png);
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-size: 50%;
+  background-position: center center;
+}
+@media (min-width: 47.9375rem) {
+  .home-template .main-header:after {
+    display: none;
+  }
+}
 @keyframes hero-fade {
   0% {
     opacity: 0;
@@ -3403,8 +3408,33 @@ body:not(.post-template) .post-title {
 .hero-7 {
   animation-delay: 36s;
 }
+.home-template .page-title {
+  -webkit-animation: fade-in-down 0.6s;
+  animation: fade-in-down 0.6s;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+.home-template .page-description {
+  -webkit-animation: fade-in-down 0.9s;
+  animation: fade-in-down 0.9s;
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+.home-template main.content {
+  background-color: #F6F6F6;
+}
+@media (min-width: 64.0625rem) {
+  .home-template .post {
+    margin-left: 0;
+    margin-right: 0;
+    width: auto;
+  }
+  .home-template .blog-block {
+    margin-right: 0;
+    margin-left: 3.6rem;
+  }
+}
 .blog-block {
-  border: 0.45rem solid #F6F6F6;
   padding: 0;
 }
 .blog-block section,
@@ -3420,19 +3450,22 @@ body:not(.post-template) .post-title {
 .blog-block-date {
   text-align: center;
   color: #8D9A93;
+  padding: 0.9rem;
 }
 .blog-block-date .blog-block-day {
   display: block;
-  font-size: 3em;
+  font-size: 2em;
+  line-height: 1em;
   font-weight: 600;
 }
 .blog-block-date .blog-block-month {
   display: block;
-  font-size: 1.5em;
+  line-height: 1em;
   text-transform: uppercase;
 }
 .blog-block-date .blog-block-year {
   display: block;
+  line-height: 1em;
 }
 #map {
   height: 28.8rem;
@@ -3495,8 +3528,9 @@ body:not(.post-template) .post-title {
 }
 .nav-main {
   position: relative;
+  z-index: 1;
   background-color: white;
-  height: 2.7rem;
+  height: 3.6rem;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 @media (min-width: 47.9375rem) {
@@ -3582,7 +3616,7 @@ body:not(.post-template) .post-title {
   position: absolute;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  top: 2.7rem;
+  top: 3.6rem;
   right: 0;
   left: 0;
   opacity: 0;
@@ -3667,13 +3701,13 @@ body:not(.post-template) .post-title {
 .site-footer {
   position: relative;
   font-family: "Open Sans", sans-serif;
-  color: #8D9A93;
+  color: rgba(255, 255, 255, 0.5);
   padding: 1.8rem;
   font-size: 1.25rem;
-  background-color: #F6F6F6;
+  background-color: #33293A;
 }
 .site-footer a {
-  color: #8D9A93;
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   font-weight: bold;
 }
@@ -3696,6 +3730,9 @@ body:not(.post-template) .post-title {
 }
 .site-footer .social img {
   width: 20px;
+}
+.site-footer.sub-footer {
+  background-color: #19141c;
 }
 .site-footer-emblum {
   max-width: 200px;

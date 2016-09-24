@@ -40,11 +40,10 @@
     {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
     {{{body}}}
 
-    {{!-- The tiny footer at the very bottom --}}
     <footer class="site-footer clearfix">
       <div class="row content-max-width">
         <section class="column medium-4 large-3">
-          <img src="{{asset 'img/logo-emblum.png'}}" alt="primoris emblum" class="site-footer-emblum">
+          <img src="{{asset 'img/emblum-black.png'}}" alt="primoris emblum" class="site-footer-emblum">
         </section>
         <section class="column medium-4 large-3">
           <ul>
@@ -69,18 +68,16 @@
             </li>
             <li>Phone: (201) 722-1000</li>
             <li>Fax: (201) 722-1001</li>
-            <li class="copyright">Copyright &copy; {{date format="YYYY"}}
-              {{@blog.title}},
-              all rights reserved.
-            </li>
-            <li>
-              Proudly published with <a href="https://ghost.org">Ghost</a>,
-              designed by <a href="http://herrmedia.com">herrmedia</a>
-            </li>
           </ul>
         </section>
       </div>
     </footer>
+    <div class="site-footer sub-footer">
+      Copyright &copy; {{date format="YYYY"}}
+      {{@blog.title}}, all rights reserved.
+      Published with <a href="https://ghost.org">Ghost</a>,
+      designed by <a href="http://herrmedia.com">herrmedia</a>
+    </div>
 
   </div>
 
