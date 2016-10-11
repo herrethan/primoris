@@ -750,14 +750,23 @@ margin on the iframe, cause it breaks stuff. */
 //     font-size: 3.6rem;
 // }
 
-.post-title a {
-    color: @cape-cod;
+.post-title {
+  color: @sushi;
+  font-family: 'Benton Compressed Black', sans-serif;
+
+  a {
+    color: @sushi;
     text-decoration: none;
+    &:focus,
+    &:hover,
+    &:active {
+      color: darken(@sushi, 10%);
+    }
+  }
 }
 
 .post-excerpt p {
     margin: 0;
-    font-size: 0.9em;
     line-height: 1.7em;
 }
 
@@ -857,8 +866,6 @@ margin on the iframe, cause it breaks stuff. */
 
 .post-template .post-title {
     margin-bottom: 5px;
-    color: @sushi;
-    font-family: 'Benton Compressed Black', sans-serif;
 }
 
 .post-template .post-meta {

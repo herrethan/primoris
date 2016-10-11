@@ -3,7 +3,8 @@
     font-family: "Open Sans", sans-serif;
     color: rgba(255,255,255,0.5);
     padding: @gutter;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    line-height: 1.5em;
     background-color: @black-currant;
 
   a {
@@ -19,6 +20,13 @@
 
   .social {
 
+    margin-top: @gutter;
+    margin-bottom: @gutter;
+
+    ul {
+      margin-top: @quarter-gutter;
+    }
+
     li {
       display: inline-block;
       margin-right: @half-gutter;
@@ -32,21 +40,18 @@
       }
     }
     img {
-      width: 20px;
+      width: 30px;
     }
-  }
-
-  .copyright {
-
   }
 
   &.sub-footer {
     background-color: darken(@black-currant, 10%);
+    font-size: 0.65em;
   }
 }
 
 .site-footer-emblum {
-  max-width: 200px;
+  max-width: 160px;
   opacity: 0.5;
 }
 

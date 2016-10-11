@@ -614,9 +614,9 @@ select {
   background-origin: content-box;
   background-repeat: no-repeat;
   padding-right: 1.5rem; }
-  
+
   @ie9-10: ~"screen and (min-width:0\0)";
-  
+
   @media @ie9-10 {
     select {
       background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAYCAYAAACbU/80AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIpJREFUeNrEkckNgDAMBBfRkEt0ObRBBdsGXUDgmQfK4XhH2m8czQAAy27R3tsw4Qfe2x8uOO6oYLb6GlOor3GF+swURAOmUJ+RwtEJs9WvTGEYxBXqI1MQAZhCfUQKRzDMVj+TwrAIV6jvSUEkYAr1LSkcyTBb/V+KYfX7xAeusq3sLDtGH3kEGACPWIflNZfhRQAAAABJRU5ErkJggg=="); } }
@@ -955,7 +955,7 @@ select {
   margin-right: 0;
   float: left; }
 
-@media screen and (min-width: 40em) {
+@media screen and (min-width: @screen-md-min) {
   .medium-1 {
     width: 8.33333%; }
   .medium-push-1 {
@@ -1164,7 +1164,7 @@ select {
     margin-right: 0;
     float: left; } }
 
-@media screen and (min-width: 64em) {
+@media screen and (min-width: @screen-lg-min) {
   .large-1 {
     width: 8.33333%; }
   .large-push-1 {

@@ -1070,7 +1070,7 @@ select[multiple] {
   margin-right: 0;
   float: left;
 }
-@media screen and (min-width: 40em) {
+@media screen and (min-width: 47.9375rem) {
   .medium-1 {
     width: 8.33333%;
   }
@@ -1396,7 +1396,7 @@ select[multiple] {
     float: left;
   }
 }
-@media screen and (min-width: 64em) {
+@media screen and (min-width: 64.0625rem) {
   .large-1 {
     width: 8.33333%;
   }
@@ -2704,13 +2704,21 @@ margin on the iframe, cause it breaks stuff. */
 }
 /* Add a little circle in the middle of the border-bottom on our .post
    just for the lolz and stylepoints. */
+.post-title {
+  color: #A7CC46;
+  font-family: 'Benton Compressed Black', sans-serif;
+}
 .post-title a {
-  color: #3A4145;
+  color: #A7CC46;
   text-decoration: none;
+}
+.post-title a:focus,
+.post-title a:hover,
+.post-title a:active {
+  color: #8caf30;
 }
 .post-excerpt p {
   margin: 0;
-  font-size: 0.9em;
   line-height: 1.7em;
 }
 .read-more {
@@ -2793,8 +2801,6 @@ margin on the iframe, cause it breaks stuff. */
 }
 .post-template .post-title {
   margin-bottom: 5px;
-  color: #A7CC46;
-  font-family: 'Benton Compressed Black', sans-serif;
 }
 .post-template .post-meta {
   margin: 0;
@@ -3420,6 +3426,17 @@ margin on the iframe, cause it breaks stuff. */
   -webkit-animation-delay: 0.1s;
   animation-delay: 0.1s;
 }
+.home-template .post-title {
+  padding-left: 1.8rem;
+  padding-right: 1.8rem;
+}
+.home-template .post-header {
+  padding-top: 1px;
+}
+.home-template .post-content p {
+  padding-left: 1.8rem;
+  padding-right: 1.8rem;
+}
 .home-template main.content {
   background-color: #F6F6F6;
 }
@@ -3438,8 +3455,26 @@ margin on the iframe, cause it breaks stuff. */
   padding: 0;
 }
 .blog-block section,
-.blog-block footer {
+.blog-block footer,
+.blog-block header {
   padding: 0 3.6rem;
+}
+.blog-block header {
+  padding-top: 1.8rem;
+  padding-bottom: 1.8rem;
+}
+.blog-block section {
+  padding-top: 1.8rem;
+}
+.blog-block footer {
+  padding-bottom: 1.8rem;
+}
+.blog-block .post-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 6.75rem;
 }
 .blog-block-img {
   height: 9rem;
@@ -3449,23 +3484,32 @@ margin on the iframe, cause it breaks stuff. */
 }
 .blog-block-date {
   text-align: center;
-  color: #8D9A93;
-  padding: 0.9rem;
+  display: inline-block;
+  position: relative;
+  color: #9EABB3;
+  padding-right: 0.9rem;
+  margin-left: 1.8rem;
+  border-right: 1px solid #D5DBDE;
 }
 .blog-block-date .blog-block-day {
   display: block;
-  font-size: 2em;
+  font-size: 1.8em;
   line-height: 1em;
-  font-weight: 600;
+  position: absolute;
+  left: -36px;
+  top: -1px;
+  font-family: 'Benton Compressed Black', sans-serif;
 }
 .blog-block-date .blog-block-month {
   display: block;
   line-height: 1em;
+  font-size: .8em;
   text-transform: uppercase;
 }
 .blog-block-date .blog-block-year {
   display: block;
   line-height: 1em;
+  font-size: .8em;
 }
 #map {
   height: 28.8rem;
@@ -3703,7 +3747,8 @@ margin on the iframe, cause it breaks stuff. */
   font-family: "Open Sans", sans-serif;
   color: rgba(255, 255, 255, 0.5);
   padding: 1.8rem;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
+  line-height: 1.5em;
   background-color: #33293A;
 }
 .site-footer a {
@@ -3715,6 +3760,13 @@ margin on the iframe, cause it breaks stuff. */
   list-style: none;
   padding: 0;
   margin: 0;
+}
+.site-footer .social {
+  margin-top: 1.8rem;
+  margin-bottom: 1.8rem;
+}
+.site-footer .social ul {
+  margin-top: 0.45rem;
 }
 .site-footer .social li {
   display: inline-block;
@@ -3729,13 +3781,14 @@ margin on the iframe, cause it breaks stuff. */
   opacity: 0.8;
 }
 .site-footer .social img {
-  width: 20px;
+  width: 30px;
 }
 .site-footer.sub-footer {
   background-color: #19141c;
+  font-size: 0.65em;
 }
 .site-footer-emblum {
-  max-width: 200px;
+  max-width: 160px;
   opacity: 0.5;
 }
 .page-calendar .main-header {
