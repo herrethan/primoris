@@ -8,10 +8,18 @@
     background-color: @black-currant;
 
   a {
-    color: rgba(255,255,255,0.7);
+    color: white;
+    opacity: 0.7;
     text-decoration: none;
     font-weight: bold;
+
+    &:focus,
+    &:hover,
+    &:active {
+      opacity: 1;
+    }
   }
+
   ul {
     list-style: none;
     padding: 0;
@@ -33,6 +41,7 @@
     }
     a {
       opacity: 0.4;
+
       &:focus,
       &:hover,
       &:active {
@@ -47,6 +56,17 @@
   &.sub-footer {
     background-color: darken(@black-currant, 10%);
     font-size: 0.65em;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      height: 600px;
+      background-color: darken(@black-currant, 10%);
+    }
   }
 }
 

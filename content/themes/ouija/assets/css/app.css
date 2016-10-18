@@ -2665,15 +2665,12 @@ table thead:first-child tr:first-child td {
 table tbody + tbody {
   border-top: #EFEFEF 2px solid;
 }
-table table table {
-  background-color: #FFF;
-}
 table tbody > tr:nth-child(odd) > td,
 table tbody > tr:nth-child(odd) > th {
   background-color: #F6F6F6;
 }
-table.plain tbody > tr:nth-child(odd) > td,
-table.plain tbody > tr:nth-child(odd) > th {
+table .plain tbody > tr:nth-child(odd) > td,
+table .plain tbody > tr:nth-child(odd) > th {
   background: transparent;
 }
 iframe,
@@ -2688,7 +2685,65 @@ margin on the iframe, cause it breaks stuff. */
 }
 /* Big cover image on the home page */
 /* Create a bouncing scroll-down arrow on homepage with cover image */
-/* Add subtle load-in animation for content on the home page */
+.blog-block {
+  padding: 0;
+}
+.blog-block section,
+.blog-block footer,
+.blog-block header {
+  padding: 0 3.6rem;
+}
+.blog-block header {
+  padding-top: 1.8rem;
+  padding-bottom: 1.8rem;
+}
+.blog-block section {
+  padding-top: 1.8rem;
+}
+.blog-block footer {
+  padding-bottom: 1.8rem;
+}
+.blog-block .post-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 5.4rem;
+}
+.blog-block-img {
+  height: 9rem;
+  display: block;
+  background-size: cover;
+  background-position: center center;
+}
+.blog-block-date {
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  color: #9EABB3;
+  padding-right: 0.9rem;
+  margin-left: 2.25rem;
+  border-right: 1px solid #D5DBDE;
+}
+.blog-block-date .blog-block-day {
+  display: block;
+  font-size: 1.8em;
+  line-height: 1em;
+  position: absolute;
+  left: -39px;
+  top: -1px;
+}
+.blog-block-date .blog-block-month {
+  display: block;
+  line-height: 1em;
+  font-size: .8em;
+  text-transform: uppercase;
+}
+.blog-block-date .blog-block-year {
+  display: block;
+  line-height: 1em;
+  font-size: .8em;
+}
 /* Every post, on every page, gets this style on its <article> tag */
 .post {
   padding-bottom: 3.6rem;
@@ -3335,10 +3390,6 @@ margin on the iframe, cause it breaks stuff. */
   }
 }
 /* Used to bounce .scroll-down on home page */
-/* ==========================================================================
-   End of file. Animations should be the last thing here. Do not add stuff
-   below this point, or it will probably fuck everything up.
-   ========================================================================== */
 .main-header {
   height: 65vh;
   position: relative;
@@ -3451,66 +3502,6 @@ margin on the iframe, cause it breaks stuff. */
     margin-left: 3.6rem;
   }
 }
-.blog-block {
-  padding: 0;
-}
-.blog-block section,
-.blog-block footer,
-.blog-block header {
-  padding: 0 3.6rem;
-}
-.blog-block header {
-  padding-top: 1.8rem;
-  padding-bottom: 1.8rem;
-}
-.blog-block section {
-  padding-top: 1.8rem;
-}
-.blog-block footer {
-  padding-bottom: 1.8rem;
-}
-.blog-block .post-title {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  margin-left: 6.75rem;
-}
-.blog-block-img {
-  height: 9rem;
-  display: block;
-  background-size: cover;
-  background-position: center center;
-}
-.blog-block-date {
-  text-align: center;
-  display: inline-block;
-  position: relative;
-  color: #9EABB3;
-  padding-right: 0.9rem;
-  margin-left: 1.8rem;
-  border-right: 1px solid #D5DBDE;
-}
-.blog-block-date .blog-block-day {
-  display: block;
-  font-size: 1.8em;
-  line-height: 1em;
-  position: absolute;
-  left: -36px;
-  top: -1px;
-  font-family: 'Benton Compressed Black', sans-serif;
-}
-.blog-block-date .blog-block-month {
-  display: block;
-  line-height: 1em;
-  font-size: .8em;
-  text-transform: uppercase;
-}
-.blog-block-date .blog-block-year {
-  display: block;
-  line-height: 1em;
-  font-size: .8em;
-}
 #map {
   height: 28.8rem;
 }
@@ -3519,6 +3510,7 @@ margin on the iframe, cause it breaks stuff. */
   z-index: 10;
   min-height: 100%;
   background: #fff;
+  overflow: hidden;
   -webkit-transition: -webkit-transform 0.5s ease;
   transition: transform 0.5s ease;
 }
@@ -3568,7 +3560,6 @@ margin on the iframe, cause it breaks stuff. */
   text-transform: uppercase;
   line-height: 4.5rem;
   height: 4.5rem;
-  letter-spacing: -0.03rem;
 }
 .nav-main {
   position: relative;
@@ -3752,9 +3743,15 @@ margin on the iframe, cause it breaks stuff. */
   background-color: #33293A;
 }
 .site-footer a {
-  color: rgba(255, 255, 255, 0.7);
+  color: white;
+  opacity: 0.7;
   text-decoration: none;
   font-weight: bold;
+}
+.site-footer a:focus,
+.site-footer a:hover,
+.site-footer a:active {
+  opacity: 1;
 }
 .site-footer ul {
   list-style: none;
@@ -3786,6 +3783,16 @@ margin on the iframe, cause it breaks stuff. */
 .site-footer.sub-footer {
   background-color: #19141c;
   font-size: 0.65em;
+}
+.site-footer.sub-footer::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 600px;
+  background-color: #19141c;
 }
 .site-footer-emblum {
   max-width: 160px;
