@@ -452,7 +452,6 @@ textarea {
   font-family: inherit;
   color: #0a0a0a;
   background-color: #fefefe;
-  border-radius: 2px;
   transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -475,7 +474,6 @@ textarea:focus {
   border: 1px solid #9EABB3;
   background-color: #fefefe;
   outline: none;
-  box-shadow: 0 0 5px #D5DBDE;
   transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
 }
 textarea {
@@ -3804,12 +3802,22 @@ margin on the iframe, cause it breaks stuff. */
 .page-calendar .content {
   overflow: visible;
 }
+.page-calendar .post {
+  padding-top: 1.8rem;
+  padding-bottom: 1.8rem;
+}
 .page-calendar .post-header {
   position: absolute;
   width: 100%;
   margin-bottom: 0;
-  top: -1.6em;
-  left: 0;
+  top: -1.4em;
+  left: 1em;
+}
+@media (min-width: 30rem) {
+  .page-calendar .post-header {
+    top: -1.6em;
+    left: 0;
+  }
 }
 .page-calendar .post-title {
   display: none;
@@ -3829,15 +3837,13 @@ margin on the iframe, cause it breaks stuff. */
     font-size: 2em;
   }
 }
-.page-calendar .post-content {
-  padding-top: 3.6rem;
-}
 .page-calendar .post-content .calendar {
   display: none;
 }
 .page-calendar .post-content .calendar.current {
   display: table;
   margin-top: 0;
+  margin-bottom: 0;
 }
 .calendar-arrows {
   position: absolute;
@@ -3857,7 +3863,6 @@ margin on the iframe, cause it breaks stuff. */
   }
 }
 table.calendar {
-  background-color: #F6F6F6;
   font-size: 0.5em;
 }
 @media (min-width: 30rem) {
@@ -3870,13 +3875,17 @@ table.calendar tr {
 }
 table.calendar thead td {
   text-align: center;
+  text-transform: uppercase;
+}
+table.calendar tbody > tr:nth-child(odd) th,
+table.calendar tbody > tr:nth-child(odd) td {
+  background-color: transparent;
 }
 table.calendar tbody td {
   padding: 0;
   width: 14.28%;
   border: none;
   position: relative;
-  background-color: transparent;
 }
 table.calendar tbody td:after {
   content: '';
@@ -3889,57 +3898,104 @@ table.calendar tbody td > div {
   bottom: 2px;
   left: 2px;
   right: 2px;
-  background-color: white;
-}
-table.calendar tbody td:first-child > div {
-  left: 4px;
-}
-table.calendar tbody td:last-child > div {
-  right: 4px;
+  border-radius: 50%;
+  background-color: #F6F6F6;
 }
 .date {
-  display: block;
-  position: absolute;
-  top: 2px;
-  left: 2px;
-}
-.event {
+  display: table;
+  height: 100%;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  background-color: white;
+  text-decoration: none;
+  color: grey;
 }
-.event:hover {
-  background-color: #e6e6e6;
+.date:focus,
+.date:hover,
+.date:active {
+  color: grey;
 }
-.events-1-up .event {
+.date[disabled] {
+  opacity: 0.5;
+}
+.date span {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.events {
   height: 100%;
+  position: relative;
 }
-.events-2-up .event {
-  height: 50%;
+.events .event {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
 }
-.events-2-up .event + .event {
-  top: 50%;
+.events .event:nth-child(2) {
+  border-top-color: transparent;
+  border-left-color: transparent;
 }
-.events-3-up .event {
-  height: 33.33%;
+.events .event:nth-child(3) {
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
 }
-.events-3-up .event:first-child + .event {
-  top: 33.33%;
+.events .event:nth-child(4) {
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
 }
-.events-3-up .event + .event + .event {
-  top: 66.66%;
-}
-.event > span {
+.events .event > * {
   display: none;
 }
-.event .event-info {
+@media (min-width: 80rem) {
+  .events .event > * {
+    display: block;
+  }
+}
+.events .event-no-school {
+  border-color: #52C0EC;
+}
+.events .event-school-event {
+  border-color: #FFF7A0;
+}
+.events .event-parents-only {
+  border-color: #88B840;
+}
+.events .event-field-trip {
+  border-color: #FAAD31;
+}
+.events .event-open-house {
+  border-color: #7B649A;
+}
+.events .event-half-day {
+  border-color: transparent;
+}
+.events .event-half-day:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  background-color: white;
+  border-top-right-radius: 1000px;
+  border-bottom-right-radius: 1000px;
+  border: 2px solid transparent;
+}
+.calendar-popup {
   display: none;
   position: absolute;
-  width: 10.8rem;
+  width: 700%;
   height: auto;
-  bottom: 75%;
   padding: 0.9rem;
   color: #3A4145;
   z-index: 1;
@@ -3948,72 +4004,30 @@ table.calendar tbody td:last-child > div {
   border-radius: 0;
 }
 @media (min-width: 30rem) {
-  .event .event-info {
-    width: 21.6rem;
-  }
 }
-.event .event-info:after {
-  content: '';
-  display: block;
-  position: absolute;
-  bottom: -4px;
-  width: 10px;
-  height: 10px;
-  background-color: white;
-  transform: rotate(45deg);
-}
-td:nth-child(1) .event .event-info,
-td:nth-child(2) .event .event-info,
-td:nth-child(3) .event .event-info {
+td:nth-child(1) .calendar-popup,
+td:nth-child(2) .calendar-popup,
+td:nth-child(3) .calendar-popup {
   left: 0.9rem;
 }
-td:nth-child(1) .event .event-info:after,
-td:nth-child(2) .event .event-info:after,
-td:nth-child(3) .event .event-info:after {
+td:nth-child(1) .calendar-popup:after,
+td:nth-child(2) .calendar-popup:after,
+td:nth-child(3) .calendar-popup:after {
   left: 2px;
 }
-td:nth-child(4) .event .event-info,
-td:nth-child(5) .event .event-info,
-td:nth-child(6) .event .event-info,
-td:nth-child(7) .event .event-info {
+td:nth-child(4) .calendar-popup,
+td:nth-child(5) .calendar-popup,
+td:nth-child(6) .calendar-popup,
+td:nth-child(7) .calendar-popup {
   right: 0.9rem;
 }
-td:nth-child(4) .event .event-info:after,
-td:nth-child(5) .event .event-info:after,
-td:nth-child(6) .event .event-info:after,
-td:nth-child(7) .event .event-info:after {
+td:nth-child(4) .calendar-popup:after,
+td:nth-child(5) .calendar-popup:after,
+td:nth-child(6) .calendar-popup:after,
+td:nth-child(7) .calendar-popup:after {
   right: 2px;
 }
-.event:hover .event-info {
+.date:focus + .calendar-popup,
+.date:hover + .calendar-popup {
   display: block;
-}
-.event-no-school {
-  background-color: #52C0EC;
-}
-.event-no-school:hover {
-  background-color: #1591c3;
-}
-.event-school-event {
-  background-color: #FFF7A0;
-}
-.event-school-event:hover {
-  background-color: #ffee3a;
-}
-.event-parents-only {
-  background-color: #88B840;
-}
-.event-parents-only:hover {
-  background-color: #6c9233;
-}
-.event-field-trip {
-  background-color: #FAAD31;
-}
-.event-field-trip:hover {
-  background-color: #f29806;
-}
-.event-open-house {
-  background-color: #7B649A;
-}
-.event-open-house:hover {
-  background-color: #62507b;
 }

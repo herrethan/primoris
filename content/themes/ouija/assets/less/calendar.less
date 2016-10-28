@@ -8,12 +8,21 @@
     overflow: visible;
   }
 
+  .post {
+    padding-top: @gutter;
+    padding-bottom: @gutter;
+  }
+
   .post-header {
     position: absolute;
     width: 100%;
     margin-bottom: 0;
-    top: -1.6em;
-    left: 0;
+    top: -1.4em;
+    left: 1em;
+    @media(min-width: @screen-sm-min){
+      top: -1.6em;
+      left: 0;
+    }
   }
 
   .post-title {
@@ -35,7 +44,6 @@
   }
 
   .post-content{
-    padding-top: @gutter*2;
 
     .calendar {
       display: none;
@@ -43,6 +51,7 @@
       &.current {
         display: table;
         margin-top: 0;
+        margin-bottom: 0;
       }
     }
   }
@@ -67,12 +76,7 @@
 }
 
 table.calendar {
-  background-color: @wild-sand;
   font-size: 0.5em;
-
-  .muted {
-    // opacity: 0.5;
-  }
 
   @media(min-width: @screen-sm-min){
     font-size: 1em;
@@ -83,13 +87,18 @@ table.calendar {
   }
   thead td {
     text-align: center;
+    text-transform: uppercase;
+  }
+  tbody > tr:nth-child(odd) {
+    th, td {
+      background-color: transparent;
+    }
   }
   tbody td {
     padding: 0;
     width: 14.28%;
     border: none;
     position: relative;
-    background-color: transparent;
 
     &:after {
       content: '';
@@ -103,138 +112,172 @@ table.calendar {
       bottom: 2px;
       left: 2px;
       right: 2px;
-      background-color: white;
+      border-radius: 50%;
+      background-color: @wild-sand;
     }
-    &:first-child > div {
-      left: 4px;
-    }
-    &:last-child > div {
-      right: 4px;
-    }
+    // &:first-child > div {
+    //   left: 4px;
+    // }
+    // &:last-child > div {
+    //   right: 4px;
+    // }
   }
 }
 
 .date {
-  display: block;
-  position: absolute;
-  top: 2px;
-  left: 2px;
-}
-
-.event {
+  display: table;
+  height: 100%;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  background-color: white;
+  text-decoration: none;
+  color: grey;
 
-  &:hover {
-    background-color: darken(white, 10%);
+  &:focus,
+  &:hover,
+  &:active {
+    color: grey;
   }
 
-  .events-1-up & {
-    height: 100%;
-  }
-  .events-2-up & {
-    height: 50%;
-
-    + .event {
-      top: 50%;
-    }
-  }
-  .events-3-up & {
-    height: 33.33%;
-    &:first-child + .event {
-      top: 33.33%;
-    }
-    + .event + .event {
-      top: 66.66%;
-    }
+  &[disabled] {
+    opacity: 0.5;
   }
 
-  > span {
-    display: none;
+  span {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
   }
+}
 
-  .event-info {
-    display: none;
+
+.events {
+  height: 100%;
+  position: relative;
+
+  .event {
+
     position: absolute;
-    width: @gutter*6;
-    height: auto;
-    bottom: 75%;
-    padding: @half-gutter;
-    color: @body-color;
-    z-index: 1;
-    background-color: white;
-    box-shadow: @box-shadow;
-    border-radius: @border-radius;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 50%;
+    border-width: 2px;
+    border-style: solid;
 
-    @media(min-width: @screen-sm-min){
-      width: @gutter*12;
+    &:nth-child(2){
+      border-top-color: transparent;
+      border-left-color: transparent;
     }
 
-    &:after {
+    &:nth-child(3){
+      border-top-color: transparent;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+    }
+
+    &:nth-child(4){
+      border-top-color: transparent;
+      border-left-color: transparent;
+      border-bottom-color: transparent;
+    }
+
+    & > * {
+      display: none;
+
+      @media(min-width: @screen-xl-min){
+        display: block;
+      }
+    }
+  }
+  .event-no-school {
+    border-color: @picton-blue;
+  }
+  .event-school-event {
+    border-color: @picasso;
+  }
+  .event-parents-only {
+    border-color: @primoris-green-light;
+  }
+  .event-field-trip {
+    border-color: @sea-buckthorn;
+  }
+  .event-open-house {
+    border-color: @kimberly;
+  }
+  .event-half-day {
+    border-color: transparent;
+
+    &:before {
       content: '';
       display: block;
       position: absolute;
-      bottom: -4px;
-      width: 10px;
-      height: 10px;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 50%;
       background-color: white;
-      transform: rotate(45deg);
+      border-top-right-radius: 1000px;
+      border-bottom-right-radius: 1000px;
+      border: 2px solid transparent;
     }
+  }
+}
 
-    td:nth-child(1) &,
-    td:nth-child(2) &,
-    td:nth-child(3) & {
-      left: @half-gutter;
-      &:after {
-        left: 2px;
-      }
+
+.calendar-popup {
+  display: none;
+  position: absolute;
+  width: 700%;
+  height: auto;
+  padding: @half-gutter;
+  color: @body-color;
+  z-index: 1;
+  background-color: white;
+  box-shadow: @box-shadow;
+  border-radius: @border-radius;
+
+  @media(min-width: @screen-sm-min){
+    // width: @gutter*12;
+  }
+
+  // &:after {
+  //   content: '';
+  //   display: block;
+  //   position: absolute;
+  //   bottom: -4px;
+  //   width: 10px;
+  //   height: 10px;
+  //   background-color: white;
+  //   transform: rotate(45deg);
+  // }
+
+  td:nth-child(1) &,
+  td:nth-child(2) &,
+  td:nth-child(3) & {
+    left: @half-gutter;
+    &:after {
+      left: 2px;
     }
-    td:nth-child(4) &,
-    td:nth-child(5) &,
-    td:nth-child(6) &,
-    td:nth-child(7) & {
-      right: @half-gutter;
-      &:after {
-        right: 2px;
-      }
+  }
+  td:nth-child(4) &,
+  td:nth-child(5) &,
+  td:nth-child(6) &,
+  td:nth-child(7) & {
+    right: @half-gutter;
+    &:after {
+      right: 2px;
     }
   }
 
-  &:hover .event-info {
+  .date:focus + &,
+  .date:hover + & {
     display: block;
   }
 }
 
-.event-no-school {
-  background-color: @picton-blue;
-  &:hover {
-    background-color: darken(@picton-blue, 20%);
-  }
-}
-.event-school-event {
-  background-color: @picasso;
-  &:hover {
-    background-color: darken(@picasso, 20%);
-  }
-}
-.event-parents-only {
-  background-color: @primoris-green-light;
-  &:hover {
-    background-color: darken(@primoris-green-light, 10%);
-  }
-}
-.event-field-trip {
-  background-color: @sea-buckthorn;
-  &:hover {
-    background-color: darken(@sea-buckthorn, 10%);
-  }
-}
-.event-open-house {
-  background-color: @kimberly;
-  &:hover {
-    background-color: darken(@kimberly, 10%);
-  }
-}
+
+
+

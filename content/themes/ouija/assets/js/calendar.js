@@ -96,25 +96,36 @@
           inMonth = date.month() === month;
           week += '<td><div>';
 
-          // add event entries if there are any for this day
+          // add abbreviated event entries for calendar day
           if(events[id] && inMonth){
-            week += '<div class="events-'+events[id].length+'-up">';
+            week += '<div class="events">';
             events[id].forEach(function(entry, i){
-              week += '<a class="event event-'+ entry.type +'">'+
-                        '<span class="event-name">'+ entry.name +'</span>'+
+              week += '<article class="event event-'+ entry.type +'">'+
                         '<span class="event-time">'+ entry.time +'</span>'+
-                        '<section class="event-info">'+
-                          '<h2>'+ entry.name +'</h2>'+
-                          '<h3>'+ entry.time +'</h3>'+
-                          '<p>'+ (entry.description || '') +'</p>'+
-                        '</section>'+
-                      '</a>';
+                        '<span class="event-name">'+ entry.name +'</span>'+
+                      '</article>';
             });
             week += '</div>'
           }
-          week += '<span class="date';
-          if(!inMonth) week += ' muted';
-          week += '">' + date.date() + '</span>';
+
+          // clickable link cover for the day
+          week += '<a href="javascript:;" class="date"';
+          if(!inMonth) week += ' disabled';
+          week += '><span>' + date.date() + '</span></a>';
+
+          // add full even entries for pop up
+          if(events[id] && inMonth){
+            week += '<div class="calendar-popup"><ul>';
+            events[id].forEach(function(entry, i){
+              week += '<li class="popup-entry event-'+ entry.type +'">'+
+                        '<h2>'+ entry.name +'</h2>'+
+                        '<h3>'+ entry.time +'</h3>'+
+                        '<p>'+ (entry.description || '') +'</p>'+
+                      '</li>';
+            });
+            week += '</ul></div>'
+          }
+
           week += '</div></td>';
           date.add(1, 'days')
         });
