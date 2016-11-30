@@ -96,30 +96,30 @@
           inMonth = date.month() === month;
           week += '<td><div>';
 
+          // clickable link cover for the day
+          week += '<a href="javascript:;" class="date"';
+          if(!inMonth) week += ' disabled';
+          week += '><span>' + date.date() + '</span></a>';
+
           // add abbreviated event entries for calendar day
           if(events[id] && inMonth){
             week += '<div class="events">';
             events[id].forEach(function(entry, i){
               week += '<article class="event event-'+ entry.type +'">'+
-                        '<span class="event-time">'+ entry.time +'</span>'+
+                        // '<span class="event-time">'+ entry.time +'</span>'+
                         '<span class="event-name">'+ entry.name +'</span>'+
                       '</article>';
             });
             week += '</div>'
           }
 
-          // clickable link cover for the day
-          week += '<a href="javascript:;" class="date"';
-          if(!inMonth) week += ' disabled';
-          week += '><span>' + date.date() + '</span></a>';
-
-          // add full even entries for pop up
+          // add day full event entries for pop-up
           if(events[id] && inMonth){
-            week += '<div class="calendar-popup"><ul>';
+            week += '<div class="calendar-popup">' +
+                    '<h2>'+ date.format('dddd') + ', ' + monthName + ' ' + date.date() +'</h2><ul>';
             events[id].forEach(function(entry, i){
               week += '<li class="popup-entry event-'+ entry.type +'">'+
-                        '<h2>'+ entry.name +'</h2>'+
-                        '<h3>'+ entry.time +'</h3>'+
+                        '<h3>'+ entry.time +': '+ entry.name +'</h3>'+
                         '<p>'+ (entry.description || '') +'</p>'+
                       '</li>';
             });
