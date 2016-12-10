@@ -21,9 +21,10 @@
   <a class="logo-text screen-md-and-up left" href="{{@blog.url}}">
     <img src="{{asset 'img/logo-text.png'}}" alt="{{@blog.title}}"/>
   </a>
-  <button href="javascript:;" class="search-button material-icons">search</button>
+  <button id="hamburger" class="screen-sm-only nav-icon-button material-icons">menu</button>
+  <button id="search-button" class="nav-icon-button material-icons">search</button>
+  <a href="/calendar" title="calendar" class="nav-icon-button material-icons">date_range</a>
   <ul class="screen-md-and-up right">
     {{navigation}}
   </ul>
-  <button href="javascript:;" class="screen-sm-only hamburger material-icons">menu</button>
 </nav>

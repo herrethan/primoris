@@ -2493,23 +2493,23 @@ select[multiple] {
 }
 @media (min-width: 47.9375rem) {
   .screen-sm-only {
-    display: none;
+    display: none !important;
   }
 }
 .screen-md-and-up {
-  display: none;
+  display: none !important;
 }
 @media (min-width: 47.9375rem) {
   .screen-md-and-up {
-    display: block;
+    display: block !important;
   }
 }
 .screen-lg-and-up {
-  display: none;
+  display: none !important;
 }
 @media (min-width: 64.0625rem) {
   .screen-lg-and-up {
-    display: block;
+    display: block !important;
   }
 }
 .inner {
@@ -3513,8 +3513,8 @@ margin on the iframe, cause it breaks stuff. */
   transition: transform 0.5s ease;
 }
 .nav-opened .site-wrapper {
-  -webkit-transform: translate3D(0, 21.6rem, 0);
-  transform: translate3D(0, 21.6rem, 0);
+  -webkit-transform: translate3D(0, 17.1rem, 0);
+  transform: translate3D(0, 17.1rem, 0);
   -webkit-transition: -webkit-transform 0.3s ease;
   transition: transform 0.3s ease;
 }
@@ -3565,6 +3565,7 @@ margin on the iframe, cause it breaks stuff. */
   background-color: white;
   height: 3.6rem;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  padding-right: 0.9rem;
 }
 @media (min-width: 47.9375rem) {
   .nav-main {
@@ -3616,31 +3617,24 @@ margin on the iframe, cause it breaks stuff. */
 .logo-text img {
   height: 100%;
 }
-.hamburger {
-  position: absolute;
+.nav-icon-button {
+  position: relative;
   outline: none;
-  right: 0.9rem;
+  display: inline-block;
+  float: right;
   top: 0.45rem;
   color: #9EABB3;
-}
-.search-button {
-  position: absolute;
-  outline: none;
-  right: 3.6rem;
-  top: 0.45rem;
-  color: #9EABB3;
+  padding-left: 0.9rem;
 }
 @media (min-width: 47.9375rem) {
-  .search-button {
+  .nav-icon-button {
     position: relative;
     top: 4px;
     /* tracking fix */
     right: auto;
-    float: right;
     padding: 0.9rem;
-    margin-right: 0.9rem;
   }
-  .search-button:hover {
+  .nav-icon-button:hover {
     color: #3A4145;
   }
 }
