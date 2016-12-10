@@ -15,13 +15,27 @@
 
     <header class="post-header">
       <div class="calendar-arrows">
-        <button id="prev" class="material-icons">keyboard_arrow_left</button>
-        <button id="next" class="material-icons">keyboard_arrow_right</button>
+        <button id="prev" class="material-icons">arrow_back</button>
+        <button id="next" class="material-icons">arrow_forward</button>
       </div>
     </header>
 
     <section class="post-content">
       <div id="post-content" class="display-none">{{content}}</div>
+    </section>
+
+    <section class="calendar-key row">
+      <div class="column">
+        <h2 class="post-title">Key</h2>
+        <ul>
+          <li class="event-half-day">Half day (12:30pm dismissal)</li>
+          <li class="event-no-school">No school</li>
+          <li class="event-school-event">School event</li>
+          <li class="event-parents-only">Parents-only event</li>
+          <li class="event-field-trip">Field trip</li>
+          <li class="event-open-house">Open house</li>
+        </ul>
+      </div>
     </section>
 
   </article>

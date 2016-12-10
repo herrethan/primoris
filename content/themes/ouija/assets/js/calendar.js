@@ -61,6 +61,8 @@
           delete(newEntry.repeat);
         });
         delete(entry.repeat);
+      } else if (_.isEmpty(entry.time)){
+        entry.time = 'All day';
       }
     });
 
