@@ -2559,6 +2559,18 @@ body {
   margin-right: auto;
   margin-left: auto;
 }
+a {
+  color: #7B649A;
+}
+a:focus,
+a:hover,
+a:active {
+  color: #33293A;
+}
+a .material-icons {
+  top: 6px;
+  position: relative;
+}
 blockquote {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2681,8 +2693,6 @@ margin on the iframe, cause it breaks stuff. */
 .fluid-width-video-wrapper iframe {
   margin: 0;
 }
-/* Big cover image on the home page */
-/* Create a bouncing scroll-down arrow on homepage with cover image */
 .blog-block {
   padding: 0;
 }
@@ -3499,6 +3509,13 @@ margin on the iframe, cause it breaks stuff. */
     margin-right: 0;
     margin-left: 3.6rem;
   }
+}
+.visit-us {
+  background-color: white;
+  padding-bottom: 1.8rem;
+}
+.visit-us .post-title {
+  color: #7B649A;
 }
 #map {
   height: 28.8rem;
