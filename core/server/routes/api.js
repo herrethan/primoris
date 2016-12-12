@@ -132,7 +132,9 @@ apiRoutes = function apiRoutes(middleware) {
 
     // ## Ethan's big hack for submitting application forms
     router.post('/apply', function (req, res) {
-        
+
+        if(!req.body.form) res.end(JSON.stringify({ success: false, reason: 'No form body'}));
+
         var nodemailer = require('nodemailer');
         // var validate = require('validate.js');
         var mg = require('nodemailer-mailgun-transport');
@@ -147,22 +149,30 @@ apiRoutes = function apiRoutes(middleware) {
 
         verifyRecaptcha(req.body['recaptcha'], function(success) {
             if (success) {
+
+                var emailBody = '';
+
+                Object.keys(req.body.form).forEach(function(key){
+                    emailBody += '<p>';
+                    emailBody += '<b>'+key+':</b> ';
+                    emailBody += req.body.form[key];
+                    emailBody += '</p>';
+                });
+
                 nodemailerMailgun.sendMail({
-                  from: 'primorisbot@example.com',
+                  from: 'primorisbot@primorisacademy.org',
                   to: 'herrethan@gmail.com', // An array if you have multiple recipients.
                   // cc:'second@domain.com',
                   // bcc:'secretagent@company.gov',
-                  subject: 'dog!',
+                  subject: 'New Application Inquiry',
                   // 'h:Reply-To': 'reply2this@company.com',
-                  html: '<b>OK, here:</b>' + '<p>' + req.body.name + req.body.email + req.body.phone + '</p>'
+                  html: emailBody
                   // text: 'Mailgun rocks, pow pow!'
                 }, function (err, info) {
                   if (err) {
-                    console.log('bad eggs: ' + err);
                     res.sendStatus(500);
                   }
                   else {
-                    console.log('good eggs: ' + info);
                     res.end(JSON.stringify({ success: true }));
                   }
                 });
@@ -187,7 +197,6 @@ apiRoutes = function apiRoutes(middleware) {
             res.on('end', function() {
                 try {
                     var parsedData = JSON.parse(data);
-                    console.log('reCaptcha success: '+parsedData);
                     callback(parsedData.success);
                 } catch (e) {
                     callback(false);

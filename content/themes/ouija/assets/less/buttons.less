@@ -1,5 +1,17 @@
 .button-primary {
-  background-color: @sea-buckthorn;
+  background-color: @kimberly;
+  display: inline-block;
   color: white;
   padding: @half-gutter;
+  outline: none;
+
+  &:focus,
+  &:hover,
+  &:active {
+    background-color: darken(@kimberly, 10%);
+  }
+
+  &[disabled]{
+    background-color: @light-grey;
+  }
 }

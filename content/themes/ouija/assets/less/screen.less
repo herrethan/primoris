@@ -181,6 +181,22 @@ table {
 }
 
 
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+textarea {
+  border-width: 2px;
+  border-color: @wild-sand;
+
+  &:focus {
+    border-width: 2px;
+    border-color: @light-grey;
+  }
+}
+
+label {
+  margin-top: @gutter;
+}
 
 iframe,
 .fluid-width-video-wrapper {
