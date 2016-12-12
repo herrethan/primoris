@@ -46,6 +46,10 @@
       // create a dictionary of entries
       addNewEntry(entryDate(entry.date), entry);
 
+      if (!entry.time){
+        entry.time = 'All day';
+      }
+
       if(!_.isEmpty(entry.repeat)){
 
         var parentTime = entry.time
@@ -61,9 +65,8 @@
           delete(newEntry.repeat);
         });
         delete(entry.repeat);
-      } else if (_.isEmpty(entry.time)){
-        entry.time = 'All day';
       }
+
     });
 
     // build whole calendar
