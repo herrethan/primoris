@@ -3668,6 +3668,7 @@ margin on the iframe, cause it breaks stuff. */
   top: 0.9rem;
   bottom: 0.9rem;
   left: 7.2rem;
+  width: 150px;
 }
 .logo-text img {
   height: 100%;
